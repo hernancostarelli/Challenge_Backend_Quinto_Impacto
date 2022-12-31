@@ -163,7 +163,7 @@ public class StudentServiceImpl implements IStudentService {
                 Course course = optionalCourse.get();
                 List<Course> courseList = student.getCourseList();
                 courseList.add(course);
-                course.getStudents().add(student);
+                course.getStudentList().add(student);
                 student.setModificationDate(new Date());
                 repository.save(student);
             } else {
@@ -184,7 +184,7 @@ public class StudentServiceImpl implements IStudentService {
                 Course course = optionalCourse.get();
                 List<Course> courseList = student.getCourseList();
                 courseList.remove(course);
-                course.getStudents().remove(student);
+                course.getStudentList().remove(student);
                 student.setModificationDate(new Date());
                 repository.save(student);
             } else {

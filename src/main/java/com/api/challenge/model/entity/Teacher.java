@@ -33,6 +33,7 @@ public class Teacher {
     @Column(name = "surname", nullable = false)
     private String surname;
 
+    // RELATION TEACHER --> COURSE
     @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL)
     @ToString.Exclude
     private List<Course> courseList = new ArrayList<>();

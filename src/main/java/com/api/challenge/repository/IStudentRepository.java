@@ -12,7 +12,7 @@ public interface IStudentRepository extends JpaRepository<Student, String> {
 
     @Query("SELECT s FROM Student s WHERE s.name LIKE :value OR s.surname LIKE :value AND s.deleted = false " +
             "ORDER BY s.surname ASC")
-    List<Student> getByValue(String value);
+    List<Student> getByValue(@Param("value")String value);
 
     @Query("SELECT s FROM Student s WHERE s.deleted = false ORDER BY s.name ASC")
     List<Student> getForEnable();
@@ -21,7 +21,7 @@ public interface IStudentRepository extends JpaRepository<Student, String> {
     List<Student> getForDisable();
 
     @Query("SELECT s FROM Student s WHERE s.name LIKE :name AND s.deleted = false ORDER BY s.name ASC")
-    List<Student> getByName(String name);
+    List<Student> getByName(@Param("name")String name);
 
     @Query("SELECT s FROM Student s INNER JOIN s.courseList courseList WHERE courseList.name = :name")
     List<Student> getByCourse(@Param("name") String name);

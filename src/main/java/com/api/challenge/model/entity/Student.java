@@ -49,6 +49,7 @@ public class Student {
     @Column(name = "story")
     private String story;
 
+    // RELATION STUDENT --> COURSE
     @ManyToMany(cascade = {
             CascadeType.PERSIST,
             CascadeType.MERGE,

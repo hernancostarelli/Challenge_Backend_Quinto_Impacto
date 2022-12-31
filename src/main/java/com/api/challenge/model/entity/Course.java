@@ -46,14 +46,16 @@ public class Course {
     @Column(name = "schedule", nullable = false)
     private String schedule;
 
+    // RELATION COURSE --> STUDENT
     @ManyToMany(mappedBy = "courseList", fetch = FetchType.LAZY,
             cascade = {
                     CascadeType.PERSIST,
                     CascadeType.MERGE,
                     CascadeType.REFRESH})
     @ToString.Exclude
-    private List<Student> students = new ArrayList<>();
+    private List<Student> studentList = new ArrayList<>();
 
+    // RELATION COURSE --> TEACHER
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_teacher")
     @ToString.Exclude
