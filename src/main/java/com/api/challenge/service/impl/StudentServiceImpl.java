@@ -51,25 +51,10 @@ public class StudentServiceImpl implements IStudentService {
     }
 
     @Override
-    public void delete(String id) throws StudentException, CourseException {
+    public void enable(String id) throws StudentException {
         Optional<Student> studentOptional = repository.findById(id);
         if (studentOptional.isPresent()) {
             Student student = studentOptional.get();
-            // REMOVE LIST OF COURSES
-            removeListOfCourse(id, student);
-            repository.delete(student);
-        } else {
-            throw new StudentException(EExceptionMessage.STUDENT_NOT_FOUND.toString());
-        }
-    }
-
-    @Override
-    public void enable(String id) throws StudentException, CourseException {
-        Optional<Student> studentOptional = repository.findById(id);
-        if (studentOptional.isPresent()) {
-            Student student = studentOptional.get();
-            // REMOVE LIST OF COURSES
-            removeListOfCourse(id, student);
             student.setDeleted(false);
             student.setModificationDate(new Date());
             repository.save(student);
@@ -79,13 +64,28 @@ public class StudentServiceImpl implements IStudentService {
     }
 
     @Override
-    public void disable(String id) throws StudentException {
+    public void disable(String id) throws StudentException, CourseException {
         Optional<Student> studentOptional = repository.findById(id);
         if (studentOptional.isPresent()) {
             Student student = studentOptional.get();
+            // REMOVE LIST OF COURSES
+            removeListOfCourse(id, student);
             student.setDeleted(true);
             student.setModificationDate(new Date());
             repository.save(student);
+        } else {
+            throw new StudentException(EExceptionMessage.STUDENT_NOT_FOUND.toString());
+        }
+    }
+
+    @Override
+    public void delete(String id) throws StudentException, CourseException {
+        Optional<Student> studentOptional = repository.findById(id);
+        if (studentOptional.isPresent()) {
+            Student student = studentOptional.get();
+            // REMOVE LIST OF COURSES
+            removeListOfCourse(id, student);
+            repository.delete(student);
         } else {
             throw new StudentException(EExceptionMessage.STUDENT_NOT_FOUND.toString());
         }

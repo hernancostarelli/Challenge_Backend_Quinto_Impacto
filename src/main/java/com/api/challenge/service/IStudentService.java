@@ -18,13 +18,13 @@ public interface IStudentService {
     void modify(String id, String name, String surname, String dateOfBirth, String story) throws StudentException;
 
     @Transactional
+    void enable(String id) throws StudentException;
+
+    @Transactional
+    void disable(String id) throws StudentException, CourseException;
+
+    @Transactional
     void delete(String id) throws StudentException, CourseException;
-
-    @Transactional
-    void enable(String id) throws StudentException, CourseException;
-
-    @Transactional
-    void disable(String id) throws StudentException;
 
     @Transactional(readOnly = true)
     Student getById(String id) throws StudentException;
