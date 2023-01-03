@@ -8,32 +8,25 @@ import lombok.ToString;
 import org.hibernate.Hibernate;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "student")
+@Table(name = "admin")
 @Getter
 @Setter
 @RequiredArgsConstructor
 @ToString(onlyExplicitlyIncluded = true)
-public class Student {
+public class Admin {
 
     @Id
     @GeneratedValue(generator = "uuid")
@@ -46,27 +39,15 @@ public class Student {
     @Column(name = "surname", nullable = false)
     private String surname;
 
-    @Column(name = "date_of_birth", nullable = false)
-    private String dateOfBirth;
+    @Column(name = "email", nullable = false)
+    private String email;
 
-    @Column(name = "story")
-    private String story;
+    @Column(name = "password", nullable = false)
+    private String password;
 
     @Column(name = "role", nullable = false)
     @Enumerated(EnumType.STRING)
-    private ERole role = ERole.STUDENT;
-
-    // RELATION STUDENT --> COURSE
-    @ManyToMany(cascade = {
-            CascadeType.PERSIST,
-            CascadeType.MERGE,
-            CascadeType.REFRESH}, fetch = FetchType.LAZY, targetEntity = Course.class)
-    @JoinTable(
-            name = "student_course",
-            joinColumns = @JoinColumn(name = "id_student"),
-            inverseJoinColumns = @JoinColumn(name = "id_course"))
-    @ToString.Exclude
-    private List<Course> courseList = new ArrayList<>();
+    private ERole role = ERole.ADMIN;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "creation_date", nullable = false)
@@ -87,8 +68,8 @@ public class Student {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Student student = (Student) o;
-        return id != null && Objects.equals(id, student.id);
+        Admin admin = (Admin) o;
+        return id != null && Objects.equals(id, admin.id);
     }
 
     @Override
