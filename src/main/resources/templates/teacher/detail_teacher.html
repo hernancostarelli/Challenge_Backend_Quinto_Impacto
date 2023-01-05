@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="/fragments/head :: head"></head>
+<body>
+
+<div class="container-index">
+
+  <div class="title">
+    <h1>DETALLE DEL PROFESOR</h1>
+  </div>
+
+  <div class="table-detail">
+    <table class="table table-dark">
+
+      <thead>
+      <tr>
+        <th scope="col">ATRIBUTO</th>
+        <th scope="col">DETALLE</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr>
+        <td th:text="'Id del Profesor : '"></td>
+        <td th:text="${teacher.id}"></td>
+      </tr>
+
+      <tr>
+        <td th:text="'Nombre completo del Profesor : '"></td>
+        <td th:text="${teacher.surname} + ' ' + ${teacher.name}"></td>
+      </tr>
+
+      <tr>
+        <td th:text="'Rol del Profesor : '"></td>
+        <td th:text="${teacher.role}"></td>
+      </tr>
+
+      <tr>
+        <td th:text="'Fecha de creación del Profesor : '"></td>
+        <td th:text="${#dates.format(teacher.creationDate, 'dd / MM / yyyy')}"></td>
+      </tr>
+
+      <tr>
+        <td th:text="'Fecha de la última modificación : '"></td>
+        <td th:text="${#dates.format(teacher.modificationDate, 'dd / MM / yyyy')}"></td>
+      </tr>
+      <tr>
+        <td th:text="'Profesor dado de baja : '"></td>
+        <td th:text="${teacher.deleted}"></td>
+      </tr>
+
+      <tr>
+        <td th:text="'Cursos que dicta : '"></td>
+        <td th:text="${teacher.courseList}"></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="button-teacher">
+    <a type="button" class="btn btn-outline-primary my-2 btn-sm" th:href="@{/teacher/search-teacher}">Volver atrás</a>
+    <a type="button" class="btn btn-outline-success my-2 btn-sm" th:href="@{/teacher/dashboard}">Volver al Inicio</a>
+  </div>
+
+</div>
+
+</body>
+</html>

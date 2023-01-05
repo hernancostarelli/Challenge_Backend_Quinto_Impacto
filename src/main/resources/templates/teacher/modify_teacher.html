@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="/fragments/head :: head"></head>
+<body>
+
+<div class="container-index">
+
+  <div class="title">
+    <h1>MODIFICAR PROFESORES</h1>
+    <br>
+    <h4>Ingrese los siguientes datos para modificar un Profesor</h4>
+    <br>
+  </div>
+
+  <div class="register">
+    <form th:action="@{/teacher/modify-teacher/__${teacher.id}__}" method="POST">
+
+      <div class="form-group">
+        <input hidden='' type="text" class="form-control" name="id" th:value="${teacher.name}">
+      </div>
+
+      <div class="form-group">
+        <label>Nombre del Profesor</label>
+        <input type="text" class="form-control" name="name" th:value="${teacher.name}" placeholder="Nombre del Profesor" required>
+      </div>
+
+      <div class="form-group">
+        <label>Apellido del Profesor</label>
+        <input type="text" class="form-control" name="surname" th:value="${teacher.surname}" placeholder="Apellido del Profesor" required>
+      </div>
+
+      <div class="button">
+        <button type="submit" class="btn btn-outline-warning my-2 btn-sm" title="Modificar Profesor">Modificar Profesor</button>
+        <a type="button" class="btn btn-outline-primary my-2 btn-sm" th:href="@{/teacher/search-teacher}">Volver atrás</a>
+      </div>
+
+      <div class="button">
+        <a type="button" class="btn btn-outline-success my-2 btn-sm" th:href="@{/admin/dashboard}">Volver al Inicio</a>
+      </div>
+
+    </form>
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,135 @@
+.container-index {
+    text-align: center;
+    margin-top: 15%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: auto;
+    padding-right: auto;
+}
+
+.container-login {
+    text-align: center;
+    margin-top: 15%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: auto;
+    padding-right: auto;
+}
+
+.container-register {
+    text-align: center;
+    margin-top: 8%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: auto;
+    padding-right: auto;
+}
+
+.container-search-teacher{
+text-align: center;
+    margin-top: 3%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: auto;
+    padding-right: auto;
+}
+
+.button {
+margin-top:10%;
+}
+
+.button-teacher{
+margin-top: 3%;
+}
+
+.login {
+margin-top:3%;
+}
+
+.register {
+margin-top:3%;
+}
+
+.search{
+margin-top:3%;
+}
+
+.title-table{
+margin-top:3%;
+}
+
+.detail{
+margin-top:3%;
+}
+
+body {
+	color: white;
+	/*height: 400px;*/
+	background-color: black;
+	/*background-color: darkgray;*/
+	/*background-image: url("../imagenes/index.jpg");*/
+	background-size: cover;
+	background-repeat: no-repeat;
+	/*overflow: hidden;*/
+}
+
+
+h1,h2,h3,h4,h5 {
+	text-align: center;
+}
+
+.title, .registro, .busqueda, .tabla, .button, .modificar {
+	text-align: center;
+}
+
+table {
+	width: 98%;
+	margin-left: 3%;
+	margin-right: 3%;
+	font-size: small;
+	border-top: 2px solid darkgrey;
+	border-bottom: 2px solid darkgrey;
+	border-left: 2px solid darkgrey;
+	border-right: 2px solid darkgrey;
+}
+
+.table {
+margin-top: 2%;
+  width: 75%;
+  place-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: small;
+}
+
+.table-detail {
+margin-top: 2%;
+  width: 50%;
+  place-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: small;
+  text-align: left;
+}
+
+
+/* PARA LOS INPUT */
+.form-control {
+	border-radius: 5px;
+	background-color: transparent;
+	color: gray;
+	/*border: 0;*/
+	border-color: white;
+}
+
+.form-control::-webkit-input-placeholder {
+  text-align: center;
+  line-height: 100px;
+}
+
+form {
+	width: 100%;
+	text-align: center;
+	padding-left: 35%;
+	padding-right: 35%;
+}
