@@ -2,7 +2,6 @@ package com.api.challenge.service;
 
 import com.api.challenge.exception.CourseException;
 import com.api.challenge.exception.TeacherException;
-import com.api.challenge.model.entity.Student;
 import com.api.challenge.model.entity.Teacher;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -34,7 +33,10 @@ public interface ITeacherService {
     List<Teacher> getAll() throws TeacherException;
 
     @Transactional(readOnly = true)
-    List<Teacher> getByValue(String value) throws TeacherException;
+    List<Teacher> getByValueEnable(String value) throws TeacherException;
+
+    @Transactional(readOnly = true)
+    List<Teacher> getByValueDisable(String value) throws TeacherException;
 
     @Transactional(readOnly = true)
     List<Teacher> getByName(String name) throws TeacherException;

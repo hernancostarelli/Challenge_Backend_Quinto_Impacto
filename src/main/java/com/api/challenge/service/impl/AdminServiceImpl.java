@@ -52,12 +52,12 @@ public class AdminServiceImpl implements IAdminService, UserDetailsService {
             throw new AdminException(EExceptionMessage.THE_ADMIN_EMAIL_CANNOT_BE_EMPTY_OR_BE_NULL.toString());
         }
         if (repository.existsByEmail(email)) {
-            throw new EmailAlreadyExistException(EExceptionMessage.EMAIL_ALREADY_EXISTS.toString());
+            throw new EmailAlreadyExistException(EExceptionMessage.EMAIL_ALREADY_EXISTS.getMessage(email));
         }
         if (password == null || password.isEmpty()) {
             throw new AdminException(EExceptionMessage.THE_ADMIN_PASSWORD_CANNOT_BE_EMPTY_OR_BE_NULL.toString());
         }
-        if (password.length() <= 6) {
+        if (password.length() < 6) {
             throw new AdminException(EExceptionMessage.THE_ADMIN_PASSWORD_CANNOT_BE_SHORTER_THAN_6_CHARACTERS.toString());
         }
         if (!(password.equals(confirmPassword))) {

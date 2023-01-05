@@ -1,7 +1,12 @@
 package com.api.challenge.model.enums;
 
 public enum ERole {
-    ADMIN("Admin"),
+
+    ADMIN,
+    TEACHER,
+    STUDENT
+
+    /*ADMIN("Admin"),
     TEACHER("Teacher"),
     STUDENT("Student");
 
@@ -23,5 +28,5 @@ public enum ERole {
             }
         }
         throw new IllegalArgumentException("ERole NOT FOUND");
-    }
+    }*/
 }

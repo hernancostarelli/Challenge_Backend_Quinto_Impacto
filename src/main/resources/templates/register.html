@@ -1,10 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Register</title>
-</head>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="/fragments/head :: head"></head>
+
 <body>
-<h1>Bienvenido al Registro</h1>
+
+<div th:if="${success}!=null" class="alert alert-success">
+    <div class="card-body">
+        <h5 class="card-title">success</h5>
+        <p class="card-text" th:text="${success}"></p>
+    </div>
+</div>
+
+<div  th:if="${error}!=null" class="card text-white bg-danger mb-3">
+    <div class="card-body">
+        <h5 class="card-title">error</h5>
+        <p class="card-text " th:text="${error}"></p>
+    </div>
+</div>
+
+<div class="container-register">
+
+    <div class="title">
+        <h1>REGISTRO DE USUARIOS</h1>
+        <br>
+        <h4>Ingrese los siguientes datos para registrar un nuevo usuario</h4>
+        <br>
+    </div>
+
+    <div class="register">
+        <form th:action="@{/register}" method="POST">
+
+            <div class="form-group">
+                <label>Ingrese su Nombre</label>
+                <input type="text" class="form-control" name="name" th:value="${name}" placeholder="Ingrese su Nombre" required>
+            </div>
+
+            <div class="form-group">
+                <label>Ingrese su Apellido</label>
+                <input type="text" class="form-control" name="surname" th:value="${surname}" placeholder="Ingrese su Apellido" required>
+            </div>
+
+            <div class="form-group">
+                <label>Ingrese su Email</label>
+                <input type="email" class="form-control" name="email" id="login" placeholder="Ingrese su email" th:value="${email}" required>
+            </div>
+
+            <div class="form-group">
+                <label>Ingrese su Contraseña</label>
+                <input type="password" class="form-control" name="password" id="password" placeholder="Ingrese su contraseña" th:value="${password}" required>
+            </div>
+
+            <div class="form-group">
+                <label>Repita la contraseña</label>
+                <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" placeholder="Repita la contraseña" th:value="${confirmPassword}" required>
+            </div>
+
+            <div class="button">
+                <button type="submit" class="btn btn-outline-success my-2 btn-sm" title="Registrar Usuario">Registrate !!</button>
+                <a type="button" class="btn btn-outline-warning my-2 btn-sm" href="/">Volver al Inicio</a>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
 </body>
 </html>

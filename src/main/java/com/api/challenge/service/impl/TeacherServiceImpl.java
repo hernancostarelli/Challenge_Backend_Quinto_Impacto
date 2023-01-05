@@ -106,11 +106,24 @@ public class TeacherServiceImpl implements ITeacherService {
     }
 
     @Override
-    public List<Teacher> getByValue(String value) throws TeacherException {
+    public List<Teacher> getByValueEnable(String value) throws TeacherException {
         if (value == null) {
             value = "";
         }
-        List<Teacher> teacherList = repository.getByValue("%" + value + "%");
+        List<Teacher> teacherList = repository.getByValueEnable("%" + value + "%");
+        if (!(teacherList.isEmpty())) {
+            return teacherList;
+        } else {
+            throw new TeacherException(EExceptionMessage.TEACHER_NOT_FOUND.toString());
+        }
+    }
+
+    @Override
+    public List<Teacher> getByValueDisable(String value) throws TeacherException {
+        if (value == null) {
+            value = "";
+        }
+        List<Teacher> teacherList = repository.getByValueDisable("%" + value + "%");
         if (!(teacherList.isEmpty())) {
             return teacherList;
         } else {

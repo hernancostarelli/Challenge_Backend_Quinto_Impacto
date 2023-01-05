@@ -26,7 +26,7 @@ import java.util.Objects;
 @Setter
 @RequiredArgsConstructor
 @ToString(onlyExplicitlyIncluded = true)
-public class Admin {
+public class Admin  {
 
     @Id
     @GeneratedValue(generator = "uuid")
