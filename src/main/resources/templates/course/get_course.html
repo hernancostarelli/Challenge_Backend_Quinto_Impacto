@@ -71,6 +71,7 @@
               <i th:unless="${course.deleted}"  class="fa fa-circle" style="color: green;"></i></td>
 
             <td>
+              <a th:href="@{/course/detail-course/__${course.id}__}" class="btn btn-light btn-sm" title="Detalles">Detalles</a>
               <a th:href="@{/course/modify-course/__${course.id}__}" class="btn btn-warning btn-sm" title="Modificar">Modificar</a>
               <a th:if="${course.deleted}" th:href="@{/course/enable-course/__${course.id}__}" class="btn btn-success btn-sm" title="Alta">Alta</a>
               <a th:unless="${course.deleted}" th:href="@{/course/disable-course/__${course.id}__}" class="btn btn-danger btn-sm" title="Baja">Baja</a>
