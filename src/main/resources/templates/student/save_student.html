@@ -32,7 +32,8 @@
 
             <div class="form-group">
                 <label>Fecha de Nacimiento</label>
-                <input type="date" min="1980-01-01" class="form-control" name="dateOfBirth" th:value="${dateOfBirth}" placeholder="Fecha de Nacimiento" required>
+                <input type="text" class="form-control" name="dateOfBirth" th:value="${dateOfBirth}" placeholder="00 / 00 / 0000" required>
+                <!--<input type="date" min="1980-01-01" class="form-control" id="dateOfBirth" name="dateOfBirth" th:value="${dateOfBirth}" placeholder="Fecha de Nacimiento" required>-->
             </div>
 
             <div class="form-group">
@@ -42,7 +43,7 @@
             </div>
 
             <div class="button-student">
-                <button type="submit" class="btn btn-outline-success my-2 btn-sm" title="Registrar Profesor">Registrar Profesor</button>
+                <button type="submit" class="btn btn-outline-success my-2 btn-sm" title="Registrar Alumno">Registrar Alumno</button>
             </div>
 
             <div class="button-back-to-home">

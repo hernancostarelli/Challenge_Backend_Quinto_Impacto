@@ -29,17 +29,17 @@
 
       <div class="form-group">
         <label>Nombre del Curso</label>
-        <input type="text" class="form-control" name="name" th:value="${name}" placeholder="Nombre del Curso" required>
+        <input type="text" class="form-control" name="name" th:value="${course.name}" placeholder="Nombre del Curso" required>
       </div>
 
       <div class="form-group">
         <label>Turno del Curso</label>
-        <input type="text" class="form-control" name="turn" th:value="${turn}" placeholder="Turno del Curso" required>
+        <input type="text" class="form-control" name="turn" th:value="${course.turn}" placeholder="Turno del Curso" required>
       </div>
 
       <div class="form-group">
         <label>Horario del Curso</label>
-        <input type="text" class="form-control" name="schedule" th:value="${schedule}" placeholder="Horario del Curso" required>
+        <input type="text" class="form-control" name="schedule" th:value="${course.schedule}" placeholder="Horario del Curso" required>
       </div>
 
       <div class="button-course">

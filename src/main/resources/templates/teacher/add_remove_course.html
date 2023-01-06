@@ -6,7 +6,10 @@
       xsi:schemaLocation="http://www.thymeleaf.org ">
 
 <head th:replace="/fragments/head :: head"></head>
+
 <body>
+
+<nav th:replace="/fragments/nav :: nav"></nav>
 
 <div class="alert">
   <div th:if="${success}!=null" class="alert alert-success">
@@ -22,7 +25,7 @@
   </div>
 </div>
 
-<div class="container-index">
+<div class="container-teacher-course">
 
   <div class="title">
     <h1>AGREGAR O REMOVER CURSOS</h1>
@@ -44,30 +47,31 @@
       <tr>
 
         <td th:text="${course.name}" th:value="${course.id}"></td>
+
         <td>
           <i th:if="${course.deleted}" class="fa fa-circle" style="color: red;"></i>
-          <i th:unless="${course.deleted}" class="fa fa-circle" style="color: green;"></i></td>
+          <i th:unless="${course.deleted}" class="fa fa-circle" style="color: green;"></i>
+        </td>
 
         <td>
           <div>
             <form id="form1" th:action="@{/teacher/add-course/__${teacher.id}__/course/__${course.id}__}" method="POST">
               <div hidden="hidden" th:value="${teacher.id}"></div>
-              <!--<button type="submit" class="btn btn-success btn-sm" title="Agregar">Agregar</button>-->
-
+              <button hidden="hidden" type="submit" class="btn btn-success btn-sm" title="Agregar">Agregar</button>
             </form>
 
 
             <form id="form2" th:action="@{/teacher/remove-course/__${teacher.id}__/course/__${course.id}__}"
                   method="POST" class="mbr-form form-with-styler mx-auto">
               <div hidden="hidden" th:value="${teacher.id}"></div>
-              <!--<button type="submit" class="btn btn-danger btn-sm" title="Remover">Remover</button>-->
-
+              <button hidden="hidden" type="submit" class="btn btn-danger btn-sm" title="Remover">Remover</button>
             </form>
 
             <a href="javascript:;" onclick="document.getElementById('form1').submit()" class="btn btn-success btn-sm"
                title="Agregar">Agregar</a>
             <a href="javascript:;" onclick="document.getElementById('form2').submit()" class="btn btn-danger btn-sm"
                title="Remover">Remover</a>
+
           </div>
         </td>
       </tr>
@@ -75,9 +79,9 @@
     </table>
   </div>
 
-  <div class="button-teacher">
-    <a type="button" class="btn btn-outline-primary my-2 btn-sm" th:href="@{/teacher/search-teacher}">Volver atrás</a>
-    <a type="button" class="btn btn-outline-success my-2 btn-sm" th:href="@{/teacher/dashboard}">Volver al Inicio</a>
+  <div class="button-back-to-home">
+    <a type="button" class="btn btn-outline-primary my-2 btn-sm" th:href="@{/teacher/search-teacher}">Volver Atrás</a>
+    <a type="button" class="btn btn-outline-warning my-2 btn-sm" th:href="@{/teacher/dashboard}">Volver al Inicio</a>
   </div>
 
 </div>

@@ -1,17 +1,23 @@
 <!DOCTYPE html>
-<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html lang="es"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
 
 <head th:replace="/fragments/head :: head"></head>
 
 <body>
-<div class="container-index">
+
+<nav th:replace="/fragments/nav :: nav"></nav>
+
+<div class="container-save-teacher">
 
     <div class="title">
         <h1>REGISTRO DE PROFESORES</h1>
     </div>
 
-    <div class="register">
+    <div class="register-teacher">
         <form th:action="@{/teacher/save-teacher}" method="POST">
 
             <div class="form-group">
@@ -24,13 +30,13 @@
                 <input type="text" class="form-control" name="surname" th:value="${surname}" placeholder="Apellido del Profesor" required>
             </div>
 
-            <div class="button">
-                <button type="submit" class="btn btn-outline-warning my-2 btn-sm" title="Registrar Profesor">Registrar Profesor</button>
-                <a type="button" class="btn btn-outline-primary my-2 btn-sm" th:href="@{/teacher/dashboard}">Volver atrás</a>
+            <div class="button-teacher">
+                <button type="submit" class="btn btn-outline-success my-2 btn-sm" title="Registrar Profesor">Registrar Profesor</button>
             </div>
 
-            <div class="button">
-                <a type="button" class="btn btn-outline-success my-2 btn-sm" th:href="@{/admin/dashboard}">Volver al Inicio</a>
+            <div class="button-back-to-home">
+                <a type="button" class="btn btn-outline-primary my-2 btn-sm" th:href="@{/teacher/dashboard}">Volver atrás</a>
+                <a type="button" class="btn btn-outline-warning my-2 btn-sm" th:href="@{/admin/dashboard}">Volver al Inicio</a>
             </div>
 
         </form>

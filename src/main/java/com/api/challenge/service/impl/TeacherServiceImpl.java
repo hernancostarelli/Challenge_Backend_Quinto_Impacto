@@ -73,19 +73,6 @@ public class TeacherServiceImpl implements ITeacherService {
     }
 
     @Override
-    public void delete(String id) throws TeacherException, CourseException {
-        Optional<Teacher> optionalTeacher = repository.findById(id);
-        if (optionalTeacher.isPresent()) {
-            Teacher teacher = optionalTeacher.get();
-            // REMOVE LIST OF COURSES
-            removeListOfCourse(teacher);
-            repository.delete(teacher);
-        } else {
-            throw new TeacherException(EExceptionMessage.TEACHER_NOT_FOUND.toString());
-        }
-    }
-
-    @Override
     public Teacher getById(String id) throws TeacherException {
         Optional<Teacher> optionalTeacher = repository.findById(id);
         if (optionalTeacher.isPresent()) {
@@ -107,12 +94,8 @@ public class TeacherServiceImpl implements ITeacherService {
 
     @Override
     public List<Teacher> getByValue(String value) throws TeacherException {
-        if (value == null) {
-            value = "";
-        }
-        List<Teacher> teacherList = repository.getByValue("%" + value + "%");
-        if (!(teacherList.isEmpty())) {
-            return teacherList;
+        if (value != null) {
+            return repository.getByValue("%" + value + "%");
         } else {
             throw new TeacherException(EExceptionMessage.TEACHER_NOT_FOUND.toString());
         }

@@ -36,6 +36,9 @@ public class CourseController {
     @GetMapping("/search-course")
     public String searchCourse(ModelMap model, @RequestParam(required = false) String value) throws CourseException {
         List<Course> courseList;
+        if (value == null) {
+            value = "";
+        }
         courseList = service.getByValue(value);
         model.put("courseList", courseList);
         return "/course/get_course.html";
@@ -72,12 +75,6 @@ public class CourseController {
     public String modifyCourse(@PathVariable String id, @RequestParam String name, @RequestParam String turn,
                                @RequestParam String schedule, RedirectAttributes redirectAttributes) throws CourseException {
         service.modify(id, name, turn, schedule);
-        return REDIRECT_TEACHER_SEARCH_TEACHER;
-    }
-
-    @GetMapping("/delete-course/{id}")
-    public String deleteCourse(@PathVariable String id) throws StudentException, TeacherException, CourseException {
-        service.delete(id);
         return REDIRECT_TEACHER_SEARCH_TEACHER;
     }
 

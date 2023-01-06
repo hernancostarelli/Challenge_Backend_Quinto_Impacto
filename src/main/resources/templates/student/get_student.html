@@ -54,7 +54,7 @@
         <th scope="col">ID</th>
         <th scope="col">Nombre</th>
         <th scope="col">Fecha de Nacimiento</th>
-        <th scope="col">Historia</th>
+        <!--<th scope="col">Historia</th>-->
         <th scope="col">Estado</th>
         <th scope="col">Acciones</th>
       </tr>
@@ -65,7 +65,7 @@
             <td th:text="${student.id}"></td>
             <td th:text="${student.surname} + ' ' + ${student.name}"></td>
             <td th:text="${student.dateOfBirth}"></td>
-            <td th:text="${student.story}"></td>
+            <!--<td th:text="${student.story}"></td>-->
             <td>
               <i th:if="${student.deleted}" class="fa fa-circle" style="color: red;"></i>
               <i th:unless="${student.deleted}"  class="fa fa-circle" style="color: green;"></i></td>
@@ -76,7 +76,7 @@
               <a th:href="@{/student/course/__${student.id}__}" class="btn btn-success btn-sm" title="Cursos">Cursos</a>
               <a th:if="${student.deleted}" th:href="@{/student/enable-student/__${student.id}__}" class="btn btn-success btn-sm" title="Alta">Alta</a>
               <a th:unless="${student.deleted}" th:href="@{/student/disable-student/__${student.id}__}" class="btn btn-danger btn-sm" title="Baja">Baja</a>
-              <a th:href="@{/student/delete-student/__${student.id}__}" class="btn btn-danger btn-sm" title="Eliminar">Eliminar</a>
+              <!--<a th:href="@{/student/delete-student/__${student.id}__}" class="btn btn-danger btn-sm" title="Eliminar">Eliminar</a>-->
             </td>
           </tr>
       </tbody>

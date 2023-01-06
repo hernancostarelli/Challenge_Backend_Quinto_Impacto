@@ -5,13 +5,17 @@
 <head th:replace="/fragments/head :: head"></head>
 
 <body>
-<div class="container-index">
+
+<nav th:replace="/fragments/nav :: nav"></nav>
+
+
+<div class="container-save-course">
 
     <div class="title">
         <h1>REGISTRO DE CURSOS</h1>
     </div>
 
-    <div class="register">
+    <div class="register-course">
         <form th:action="@{/course/save-course}" method="POST">
 
             <div class="form-group">
@@ -29,13 +33,13 @@
                 <input type="text" class="form-control" name="schedule" th:value="${schedule}" placeholder="Horario del Curso" required>
             </div>
 
-            <div class="button">
-                <button type="submit" class="btn btn-outline-warning my-2 btn-sm" title="Registrar Curso">Registrar Curso</button>
-                <a type="button" class="btn btn-outline-primary my-2 btn-sm" th:href="@{/course/dashboard}">Volver atrás</a>
+            <div class="button-course">
+                <button type="submit" class="btn btn-outline-success my-2 btn-sm" title="Registrar Curso">Registrar Curso</button>
             </div>
 
-            <div class="button">
-                <a type="button" class="btn btn-outline-success my-2 btn-sm" th:href="@{/admin/dashboard}">Volver al Inicio</a>
+            <div class="button-back-to-home">
+                <a type="button" class="btn btn-outline-primary my-2 btn-sm" th:href="@{/course/dashboard}">Volver atrás</a>
+                <a type="button" class="btn btn-outline-warning my-2 btn-sm" th:href="@{/admin/dashboard}">Volver al Inicio</a>
             </div>
 
         </form>

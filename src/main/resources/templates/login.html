@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html lang="es"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
 
 <head th:replace="/fragments/head :: head"></head>
 
 <body>
+
+<nav th:replace="/fragments/nav :: nav"></nav>
 
 <div class="alert">
     <div th:if="${success}!=null" class="alert alert-success">
@@ -41,6 +46,9 @@
 
             <div class="button-login">
                 <button type="submit" class="btn btn-outline-success my-2 btn-sm" title="Inicia Sesión">Inicia Sesión</button>
+            </div>
+
+            <div class="button-back-to-home">
                 <a type="button" class="btn btn-outline-warning my-2 btn-sm" th:href="@{/}">Volver al Inicio</a>
             </div>
         </form>

@@ -1,24 +1,29 @@
 <!DOCTYPE html>
-<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html lang="es"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
 
 <head th:replace="/fragments/head :: head"></head>
+
 <body>
 
-<div class="container-index">
+<nav th:replace="/fragments/nav :: nav"></nav>
+
+<div class="container-modify-teacher">
 
   <div class="title">
     <h1>MODIFICAR PROFESORES</h1>
     <br>
-    <h4>Ingrese los siguientes datos para modificar un Profesor</h4>
-    <br>
+    <h4>INGRESE LOS SIGUIENTES DATOS PARA MODIFICAR UN PROFESOR</h4>
   </div>
 
-  <div class="register">
+  <div class="modify-teacher">
     <form th:action="@{/teacher/modify-teacher/__${teacher.id}__}" method="POST">
 
       <div class="form-group">
-        <input hidden='' type="text" class="form-control" name="id" th:value="${teacher.name}">
+        <input hidden='' type="text" class="form-control" name="id" th:value="${teacher.id}">
       </div>
 
       <div class="form-group">
@@ -31,13 +36,13 @@
         <input type="text" class="form-control" name="surname" th:value="${teacher.surname}" placeholder="Apellido del Profesor" required>
       </div>
 
-      <div class="button">
-        <button type="submit" class="btn btn-outline-warning my-2 btn-sm" title="Modificar Profesor">Modificar Profesor</button>
-        <a type="button" class="btn btn-outline-primary my-2 btn-sm" th:href="@{/teacher/search-teacher}">Volver atrás</a>
+      <div class="button-teacher">
+        <button type="submit" class="btn btn-outline-success my-2 btn-sm" title="Modificar Profesor">Modificar Profesor</button>
       </div>
 
-      <div class="button">
-        <a type="button" class="btn btn-outline-success my-2 btn-sm" th:href="@{/admin/dashboard}">Volver al Inicio</a>
+      <div class="button-back-to-home">
+        <a type="button" class="btn btn-outline-primary my-2 btn-sm" th:href="@{/teacher/search-teacher}">Volver Atrás</a>
+        <a type="button" class="btn btn-outline-warning my-2 btn-sm" th:href="@{/admin/dashboard}">Volver al Inicio</a>
       </div>
 
     </form>

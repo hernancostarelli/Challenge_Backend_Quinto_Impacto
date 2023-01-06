@@ -6,13 +6,14 @@ import com.api.challenge.model.entity.Student;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.text.ParseException;
 import java.util.List;
 
 @Service
 public interface IStudentService {
 
     @Transactional
-    void save(String name, String surname, String dateOfBirth, String story) throws StudentException;
+    void save(String name, String surname, String dateOfBirth, String story) throws StudentException, ParseException;
 
     @Transactional
     void modify(String id, String name, String surname, String dateOfBirth, String story) throws StudentException;
@@ -22,9 +23,6 @@ public interface IStudentService {
 
     @Transactional
     void disable(String id) throws StudentException, CourseException;
-
-    @Transactional
-    void delete(String id) throws StudentException, CourseException;
 
     @Transactional(readOnly = true)
     Student getById(String id) throws StudentException;

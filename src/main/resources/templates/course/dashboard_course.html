@@ -1,24 +1,29 @@
 <!DOCTYPE html>
-<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html lang="es"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
 
 <head th:replace="/fragments/head :: head"></head>
 
 <body>
 
-<div class="container-index">
+<nav th:replace="/fragments/nav :: nav"></nav>
+
+<div class="container-index-course">
 
     <div class="title">
         <h1>DASHBOARD DE CURSOS</h1>
     </div>
 
-    <div class="button">
+    <div class="button-course">
         <a type="button" class="btn btn-outline-primary my-2 btn-sm" th:href="@{/course/save-course}">Nuevo Curso</a>
         <a type="button" class="btn btn-outline-success my-2 btn-sm" th:href="@{/course/search-course}">Buscar Curso</a>
     </div>
 
-    <div class="button-teacher">
-        <a type="button" class="btn btn-outline-success my-2 btn-sm" th:href="@{/admin/dashboard}">Volver al Inicio</a>
+    <div class="button-back-to-home">
+        <a type="button" class="btn btn-outline-warning my-2 btn-sm" th:href="@{/admin/dashboard}">Volver al Inicio</a>
     </div>
 
 </div>

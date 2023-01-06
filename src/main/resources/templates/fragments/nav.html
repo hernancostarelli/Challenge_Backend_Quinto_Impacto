@@ -1,6 +1,17 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" xmlns:th="http://www.w3.org/1999/xhtml">
   <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
+
+    <a class="navbar-brand" href="#">
+      <img src="/image/logo.png" width="90" height="29" alt="">
+    </a>
+
+    <div class="session">
+      <a th:if="${session.userSession != null}" th:text="'Session of : '" class="session-session"></a>
+      <br>
+      <a th:if="${session.userSession != null}" th:text=" ${session.userSession.name} + ' ' + ${session.userSession.surname}"></a>
+    </div>
+
+    <ul class="navbar-nav ml-auto">     <!--ml-auto &ndash;&gt; MANDA LOS BOTONES A LA DERECHA-->
       <li class="nav-item">
         <a class="nav-link" href="/login" th:if="${session.userSession == null}">Iniciar Sesión</a>
       </li>
@@ -8,23 +19,20 @@
         <a class="nav-link" href="/register" th:if="${session.userSession == null}">Registrate</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" th:href="@{/admin/dashboard}" th:if="${session.userSession != null}">Inicio</a>
+        <a class="nav-link" th:href="@{/admin/dashboard}" th:if="${session.userSession != null}" sec.authorize="hasAnyRole('ADMIN')">Inicio</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" th:href="@{/teacher/dashboard}" th:if="${session.userSession != null}" sec.authorize="hasAnyRole('ADMIN')">Profesores</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#" th:if="${session.userSession != null}">Alumnos</a>
+        <a class="nav-link" th:href="@{/student/dashboard}" th:if="${session.userSession != null}" sec.authorize="hasAnyRole('ADMIN')">Alumnos</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" th:href="@{/course/dashboard}" th:if="${session.userSession != null}" sec.authorize="hasAnyRole('ADMIN')">Cursos</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" th:href="@{/logout}" th:if="${session.userSession != null}">Cerrar sesión</a>
+        <a class="nav-link" th:href="@{/logout}" th:if="${session.userSession != null}" sec.authorize="hasAnyRole('ADMIN')">Cerrar sesión</a>
       </li>
     </ul>
-    <div class="session">
-    <a th:if="${session.userSession != null}" th:text="'Session of : ' + ${session.userSession.name} + ' ' + ${session.userSession.surname}"></a>
-    </div>
   </div>
 </nav>

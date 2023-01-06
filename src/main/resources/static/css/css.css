@@ -16,9 +16,53 @@
     padding-right: auto;
 }
 
-.container-login {
+.container-index-teacher, .container-index-course, .container-index-student{
     text-align: center;
     margin-top: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: auto;
+    padding-right: auto;
+}
+.container-save-teacher, .container-modify-teacher {
+    text-align: center;
+    margin-top: 15%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: auto;
+    padding-right: auto;
+}
+
+.container-save-course, .container-modify-course {
+    text-align: center;
+    margin-top: 15%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: auto;
+    padding-right: auto;
+}
+
+.container-save-student, .container-modify-student {
+    text-align: center;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: auto;
+    padding-right: auto;
+}
+
+.register-teacher, .register-course, .register-student {
+    text-align: center;
+    margin-top: 3%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: auto;
+    padding-right: auto;
+}
+
+.container-login {
+    text-align: center;
+    margin-top: 15%;
     margin-left: auto;
     margin-right: auto;
     padding-left: auto;
@@ -27,20 +71,57 @@
 
 .container-register {
     text-align: center;
-    margin-top: 12%;
+    margin-top: 10%;
     margin-left: auto;
     margin-right: auto;
     padding-left: auto;
     padding-right: auto;
 }
 
-.container-search-teacher{
+.container-detail-teacher, .container-detail-student {
+text-align: center;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: auto;
+    padding-right: auto;
+}
+
+.container-search-teacher, .container-search-student, .container-search-course{
 text-align: center;
     margin-top: 3%;
     margin-left: auto;
     margin-right: auto;
     padding-left: auto;
     padding-right: auto;
+}
+
+.container-teacher-course, .container-student-course {
+text-align: center;
+    margin-top: 15%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: auto;
+    padding-right: auto;
+}
+
+.modify-teacher{
+    text-align: center;
+    margin-top: 3%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: auto;
+    padding-right: auto;
+}
+
+.session{
+color: red;
+font-size: 12px;
+}
+
+.session-session{
+color: white;
+font-size: 10px;
 }
 
 .button-index {
@@ -55,7 +136,11 @@ margin-top:5%;
 margin-top:5%;
 }
 
-.button-teacher{
+.button-teacher, .button-course, .button-student{
+margin-top: 5%;
+}
+
+.button-back-to-home{
 margin-top: 3%;
 }
 
@@ -76,6 +161,10 @@ margin-top:3%;
 }
 
 .detail{
+margin-top:3%;
+}
+
+.sub-title{
 margin-top:3%;
 }
 

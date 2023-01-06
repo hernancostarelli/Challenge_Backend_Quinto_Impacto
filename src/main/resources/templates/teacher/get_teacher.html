@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html lang="es"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
 
 <head th:replace="/fragments/head :: head"></head>
 
 <body>
+
+<nav th:replace="/fragments/nav :: nav"></nav>
 
 <div class="alert">
   <div th:if="${success}!=null" class="alert alert-success">
@@ -26,12 +31,12 @@
     <h1>BUSCAR PROFESORES</h1>
   </div>
 
-  <div class="search">
+  <div class="container-search-teacher">
     <form th:action="@{/teacher/search-teacher}" method="GET">
       <div>
         <label>Ingrese el nombre o apellido del Profesor para realizar la búsqueda</label>
         <input type="text" class="form-control" name="value" placeholder="Ingrese el nombre o apellido del Profesor"> <br>
-        <button type="submit" class="btn btn-outline-warning my-2 btn-sm" title="Buscar Profesor">Buscar Profesor</button>
+        <button type="submit" class="btn btn-outline-success my-2 btn-sm" title="Buscar Profesor">Buscar Profesor</button>
         <br> <br>
       </div>
     </form>
@@ -67,16 +72,16 @@
               <a th:href="@{/teacher/course/__${teacher.id}__}" class="btn btn-success btn-sm" title="Cursos">Cursos</a>
               <a th:if="${teacher.deleted}" th:href="@{/teacher/enable-teacher/__${teacher.id}__}" class="btn btn-success btn-sm" title="Alta">Alta</a>
               <a th:unless="${teacher.deleted}" th:href="@{/teacher/disable-teacher/__${teacher.id}__}" class="btn btn-danger btn-sm" title="Baja">Baja</a>
-              <a th:href="@{/teacher/delete-teacher/__${teacher.id}__}" class="btn btn-danger btn-sm" title="Eliminar">Eliminar</a>
+              <!--<a th:href="@{/teacher/delete-teacher/__${teacher.id}__}" class="btn btn-danger btn-sm" title="Eliminar">Eliminar</a>-->
             </td>
           </tr>
       </tbody>
     </table>
   </div>
 
-  <div class="button-teacher">
-    <a type="button" class="btn btn-outline-primary my-2 btn-sm" th:href="@{/teacher/dashboard}">Volver atrás</a>
-    <a type="button" class="btn btn-outline-success my-2 btn-sm" th:href="@{/admin/dashboard}">Volver al Inicio</a>
+  <div class="button-back-to-home">
+    <a type="button" class="btn btn-outline-primary my-2 btn-sm" th:href="@{/teacher/dashboard}">Volver Atrás</a>
+    <a type="button" class="btn btn-outline-warning my-2 btn-sm" th:href="@{/admin/dashboard}">Volver al Inicio</a>
   </div>
 
 </div>

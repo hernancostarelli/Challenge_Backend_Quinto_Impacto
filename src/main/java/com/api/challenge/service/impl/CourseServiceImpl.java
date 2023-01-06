@@ -80,21 +80,6 @@ public class CourseServiceImpl implements ICourseService {
     }
 
     @Override
-    public void delete(String id) throws CourseException, StudentException {
-        Optional<Course> optionalCourse = repository.findById(id);
-        if (optionalCourse.isPresent()) {
-            Course course = optionalCourse.get();
-            // REMOVE TEACHER
-            course.setTeacher(null);
-            // REMOVE LIST OF STUDENTS
-            removeStudentList(course);
-            repository.delete(course);
-        } else {
-            throw new CourseException(EExceptionMessage.COURSE_NOT_FOUND.toString());
-        }
-    }
-
-    @Override
     public Course getById(String id) throws CourseException {
         Optional<Course> optionalCourse = repository.findById(id);
         if (optionalCourse.isPresent()) {
@@ -116,12 +101,8 @@ public class CourseServiceImpl implements ICourseService {
 
     @Override
     public List<Course> getByValue(String value) throws CourseException {
-        if (value == null) {
-            value = "";
-        }
-        List<Course> courseList = repository.getByValue("%" + value + "%");
-        if (!(courseList.isEmpty())) {
-            return courseList;
+        if (value != null) {
+            return repository.getByValue("%" + value + "%");
         } else {
             throw new CourseException(EExceptionMessage.COURSE_NOT_FOUND.toString());
         }

@@ -39,6 +39,9 @@ public class StudentController {
     @GetMapping("/search-student")
     public String searchStudent(ModelMap model, @RequestParam(required = false) String value) throws StudentException {
         List<Student> studentList;
+        if (value == null) {
+            value = "";
+        }
         studentList = service.getByValue(value);
         model.put("studentList", studentList);
         return "/student/get_student.html";
@@ -72,16 +75,10 @@ public class StudentController {
         return "/student/modify_student.html";
     }
 
-    @PostMapping("/modify-teacher/{id}")
+    @PostMapping("/modify-student/{id}")
     public String modifyTeacher(@PathVariable String id, @RequestParam String name, @RequestParam String surname,
                                 @RequestParam String dateOfBirth, @RequestParam String story) throws StudentException {
         service.modify(id, name, surname, dateOfBirth, story);
-        return REDIRECT_STUDENT_SEARCH_STUDENT;
-    }
-
-    @GetMapping("/delete-student/{id}")
-    public String deleteStudent(@PathVariable String id) throws StudentException, CourseException {
-        service.delete(id);
         return REDIRECT_STUDENT_SEARCH_STUDENT;
     }
 

@@ -23,9 +23,6 @@ public interface ITeacherService {
     @Transactional
     void disable(String id) throws TeacherException, CourseException;
 
-    @Transactional
-    void delete(String id) throws TeacherException, CourseException;
-
     @Transactional(readOnly = true)
     Teacher getById(String id) throws TeacherException;
 

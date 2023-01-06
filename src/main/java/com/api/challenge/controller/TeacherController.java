@@ -40,6 +40,9 @@ public class TeacherController {
     @GetMapping("/search-teacher")
     public String searchTeacher(ModelMap model, @RequestParam(required = false) String value) throws TeacherException {
         List<Teacher> teacherList;
+        if (value == null) {
+            value = "";
+        }
         teacherList = service.getByValue(value);
         model.put("teacherList", teacherList);
         return "/teacher/get_teacher.html";
@@ -75,12 +78,6 @@ public class TeacherController {
     public String modifyTeacher(@PathVariable String id, @RequestParam String name,
                                 @RequestParam String surname) throws TeacherException {
         service.modify(id, name, surname);
-        return REDIRECT_TEACHER_SEARCH_TEACHER;
-    }
-
-    @GetMapping("/delete-teacher/{id}")
-    public String deleteTeacher(@PathVariable String id) throws TeacherException, CourseException {
-        service.delete(id);
         return REDIRECT_TEACHER_SEARCH_TEACHER;
     }
 

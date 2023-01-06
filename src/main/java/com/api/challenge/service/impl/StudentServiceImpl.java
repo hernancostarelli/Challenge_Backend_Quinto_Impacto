@@ -11,6 +11,7 @@ import com.api.challenge.service.IStudentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -23,7 +24,7 @@ public class StudentServiceImpl implements IStudentService {
     private final ICourseRepository courseRepository;
 
     @Override
-    public void save(String name, String surname, String dateOfBirth, String story) throws StudentException {
+    public void save(String name, String surname, String dateOfBirth, String story) throws StudentException, ParseException {
         validate(name, surname, dateOfBirth);
         Student student = new Student();
         student.setName(name);
@@ -79,19 +80,6 @@ public class StudentServiceImpl implements IStudentService {
     }
 
     @Override
-    public void delete(String id) throws StudentException, CourseException {
-        Optional<Student> studentOptional = repository.findById(id);
-        if (studentOptional.isPresent()) {
-            Student student = studentOptional.get();
-            // REMOVE LIST OF COURSES
-            removeListOfCourse(id, student);
-            repository.delete(student);
-        } else {
-            throw new StudentException(EExceptionMessage.STUDENT_NOT_FOUND.toString());
-        }
-    }
-
-    @Override
     public Student getById(String id) throws StudentException {
         Optional<Student> studentOptional = repository.findById(id);
         if (studentOptional.isPresent()) {
@@ -113,12 +101,8 @@ public class StudentServiceImpl implements IStudentService {
 
     @Override
     public List<Student> getByValue(String value) throws StudentException {
-        if (value == null) {
-            value = "";
-        }
-        List<Student> studentList = repository.getByValue("%" + value + "%");
-        if (!(studentList.isEmpty())) {
-            return studentList;
+        if (value != null) {
+            return repository.getByValue("%" + value + "%");
         } else {
             throw new StudentException(EExceptionMessage.STUDENT_NOT_FOUND.toString());
         }
@@ -151,12 +135,17 @@ public class StudentServiceImpl implements IStudentService {
             Student student = optionalStudent.get();
             Optional<Course> optionalCourse = courseRepository.findById(idCourse);
             if (optionalCourse.isPresent()) {
-                Course course = optionalCourse.get();
+                Course course = courseRepository.getReferenceById(idCourse);
                 List<Course> courseList = student.getCourseList();
-                courseList.add(course);
-                course.getStudentList().add(student);
-                student.setModificationDate(new Date());
-                repository.save(student);
+
+                if (!(courseList.contains(course))) {
+                    courseList.add(course);
+                    course.getStudentList().add(student);
+                    student.setModificationDate(new Date());
+                    repository.save(student);
+                } else {
+                    throw new CourseException(EExceptionMessage.THE_STUDENT_ALREADY_ATTENDS_THIS_COURSE.toString());
+                }
             } else {
                 throw new CourseException(EExceptionMessage.COURSE_NOT_FOUND.toString());
             }
