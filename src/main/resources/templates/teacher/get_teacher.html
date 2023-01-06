@@ -6,6 +6,20 @@
 
 <body>
 
+<div class="alert">
+  <div th:if="${success}!=null" class="alert alert-success">
+    <div class="card-body">
+      <p class="card-text" th:text="${success}"></p>
+    </div>
+  </div>
+
+  <div  th:if="${error}!=null" class="card text-white bg-danger mb-3">
+    <div class="card-body">
+      <p class="card-text " th:text="${error}" align="center"></p>
+    </div>
+  </div>
+</div>
+
 <div class="container-search-teacher">
 
   <div class="title">
@@ -50,7 +64,7 @@
             <td>
               <a th:href="@{/teacher/detail-teacher/__${teacher.id}__}" class="btn btn-light btn-sm" title="Detalles">Detalles</a>
               <a th:href="@{/teacher/modify-teacher/__${teacher.id}__}" class="btn btn-warning btn-sm" title="Modificar">Modificar</a>
-              <a th:href="@{/teacher/add-remove-course/__${teacher.id}__}" class="btn btn-success btn-sm" title="Cursos">Cursos</a>
+              <a th:href="@{/teacher/course/__${teacher.id}__}" class="btn btn-success btn-sm" title="Cursos">Cursos</a>
               <a th:if="${teacher.deleted}" th:href="@{/teacher/enable-teacher/__${teacher.id}__}" class="btn btn-success btn-sm" title="Alta">Alta</a>
               <a th:unless="${teacher.deleted}" th:href="@{/teacher/disable-teacher/__${teacher.id}__}" class="btn btn-danger btn-sm" title="Baja">Baja</a>
               <a th:href="@{/teacher/delete-teacher/__${teacher.id}__}" class="btn btn-danger btn-sm" title="Eliminar">Eliminar</a>

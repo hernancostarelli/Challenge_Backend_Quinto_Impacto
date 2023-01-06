@@ -17,7 +17,7 @@
         <a class="nav-link" href="#" th:if="${session.userSession != null}">Alumnos</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#" th:if="${session.userSession != null}">Cursos</a>
+        <a class="nav-link" th:href="@{/course/dashboard}" th:if="${session.userSession != null}" sec.authorize="hasAnyRole('ADMIN')">Cursos</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" th:href="@{/logout}" th:if="${session.userSession != null}">Cerrar sesión</a>

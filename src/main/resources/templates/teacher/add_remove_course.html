@@ -1,15 +1,33 @@
 <!DOCTYPE html>
-<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html lang="es"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
 
 <head th:replace="/fragments/head :: head"></head>
 <body>
 
+<div class="alert">
+  <div th:if="${success}!=null" class="alert alert-success">
+    <div class="card-body">
+      <p class="card-text" th:text="${success}"></p>
+    </div>
+  </div>
+
+  <div th:if="${error}!=null" class="card text-white bg-danger mb-3">
+    <div class="card-body">
+      <p class="card-text " th:text="${error}" align="center"></p>
+    </div>
+  </div>
+</div>
+
 <div class="container-index">
 
-<div class="title">
-  <h1>AGREGAR O REMOVER CURSOS</h1>
-</div>
+  <div class="title">
+    <h1>AGREGAR O REMOVER CURSOS</h1>
+    <h1 th:text="${teacher.id}"></h1>
+  </div>
 
   <div class="table">
     <table class="table table-dark">
@@ -27,13 +45,30 @@
 
         <td th:text="${course.name}" th:value="${course.id}"></td>
         <td>
-          <i th:if="${teacher.deleted}" class="fa fa-circle" style="color: red;"></i>
-          <i th:unless="${teacher.deleted}"  class="fa fa-circle" style="color: green;"></i></td>
+          <i th:if="${course.deleted}" class="fa fa-circle" style="color: red;"></i>
+          <i th:unless="${course.deleted}" class="fa fa-circle" style="color: green;"></i></td>
 
         <td>
-          <a th:href="@{/teacher/add-course/__${teacher.id}/course/__${course.id}__}" class="btn btn-success btn-sm" title="Agregar">Agregar</a>
-          <a th:href="@{/teacher/remove-course/__${teacher.id}/course/__${course.id}__}" class="btn btn-warning btn-sm" title="Remover">Remover</a>
->
+          <div>
+            <form id="form1" th:action="@{/teacher/add-course/__${teacher.id}__/course/__${course.id}__}" method="POST">
+              <div hidden="hidden" th:value="${teacher.id}"></div>
+              <!--<button type="submit" class="btn btn-success btn-sm" title="Agregar">Agregar</button>-->
+
+            </form>
+
+
+            <form id="form2" th:action="@{/teacher/remove-course/__${teacher.id}__/course/__${course.id}__}"
+                  method="POST" class="mbr-form form-with-styler mx-auto">
+              <div hidden="hidden" th:value="${teacher.id}"></div>
+              <!--<button type="submit" class="btn btn-danger btn-sm" title="Remover">Remover</button>-->
+
+            </form>
+
+            <a href="javascript:;" onclick="document.getElementById('form1').submit()" class="btn btn-success btn-sm"
+               title="Agregar">Agregar</a>
+            <a href="javascript:;" onclick="document.getElementById('form2').submit()" class="btn btn-danger btn-sm"
+               title="Remover">Remover</a>
+          </div>
         </td>
       </tr>
       </tbody>

@@ -1,6 +1,15 @@
 .container-index {
     text-align: center;
-    margin-top: 15%;
+    margin-top: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: auto;
+    padding-right: auto;
+}
+
+.container-index-admin {
+    text-align: center;
+    margin-top: 20%;
     margin-left: auto;
     margin-right: auto;
     padding-left: auto;
@@ -9,7 +18,7 @@
 
 .container-login {
     text-align: center;
-    margin-top: 15%;
+    margin-top: 20%;
     margin-left: auto;
     margin-right: auto;
     padding-left: auto;
@@ -18,7 +27,7 @@
 
 .container-register {
     text-align: center;
-    margin-top: 8%;
+    margin-top: 12%;
     margin-left: auto;
     margin-right: auto;
     padding-left: auto;
@@ -34,19 +43,27 @@ text-align: center;
     padding-right: auto;
 }
 
-.button {
-margin-top:10%;
+.button-index {
+margin-top:5%;
+}
+
+.button-login {
+margin-top:5%;
+}
+
+.button-register {
+margin-top:5%;
 }
 
 .button-teacher{
 margin-top: 3%;
 }
 
-.login {
+.form-login {
 margin-top:3%;
 }
 
-.register {
+.form-register {
 margin-top:3%;
 }
 
@@ -110,6 +127,14 @@ margin-top: 2%;
   margin-right: auto;
   font-size: small;
   text-align: left;
+}
+
+.alert, card-body{
+font-size: small;
+text-align: center;
+width: 50%;
+margin-left: auto;
+margin-right: auto;
 }
 
 
