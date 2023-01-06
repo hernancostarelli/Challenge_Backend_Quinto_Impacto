@@ -106,37 +106,15 @@ public class TeacherServiceImpl implements ITeacherService {
     }
 
     @Override
-    public List<Teacher> getByValueEnable(String value) throws TeacherException {
+    public List<Teacher> getByValue(String value) throws TeacherException {
         if (value == null) {
             value = "";
         }
-        List<Teacher> teacherList = repository.getByValueEnable("%" + value + "%");
+        List<Teacher> teacherList = repository.getByValue("%" + value + "%");
         if (!(teacherList.isEmpty())) {
             return teacherList;
         } else {
             throw new TeacherException(EExceptionMessage.TEACHER_NOT_FOUND.toString());
-        }
-    }
-
-    @Override
-    public List<Teacher> getByValueDisable(String value) throws TeacherException {
-        if (value == null) {
-            value = "";
-        }
-        List<Teacher> teacherList = repository.getByValueDisable("%" + value + "%");
-        if (!(teacherList.isEmpty())) {
-            return teacherList;
-        } else {
-            throw new TeacherException(EExceptionMessage.TEACHER_NOT_FOUND.toString());
-        }
-    }
-
-    @Override
-    public List<Teacher> getByName(String name) throws TeacherException {
-        if (name != null) {
-            return repository.getByName("%" + name + "%");
-        } else {
-            throw new TeacherException(EExceptionMessage.THERE_IS_NO_TEACHER_BY_THAT_NAME.toString());
         }
     }
 
@@ -168,11 +146,17 @@ public class TeacherServiceImpl implements ITeacherService {
             Optional<Course> optionalCourse = courseRepository.findById(idCourse);
             if (optionalCourse.isPresent()) {
                 Course course = optionalCourse.get();
-                List<Course> courseList = teacher.getCourseList();
-                courseList.add(course);
-                course.setTeacher(teacher);
-                teacher.setModificationDate(new Date());
-                repository.save(teacher);
+                if (course.getTeacher() == null) {
+                    List<Course> courseList = teacher.getCourseList();
+                    courseList.add(course);
+                    course.setTeacher(teacher);
+                    teacher.setModificationDate(new Date());
+                    repository.save(teacher);
+
+                } else {
+                    throw new CourseException(EExceptionMessage.THE_COURSE_ALREADY_HAS_A_TEACHER.toString());
+                }
+
             } else {
                 throw new CourseException(EExceptionMessage.COURSE_NOT_FOUND.toString());
             }

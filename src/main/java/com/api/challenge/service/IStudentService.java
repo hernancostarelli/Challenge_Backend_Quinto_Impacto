@@ -36,9 +36,6 @@ public interface IStudentService {
     List<Student> getByValue(String value) throws StudentException;
 
     @Transactional(readOnly = true)
-    List<Student> getByName(String name) throws StudentException;
-
-    @Transactional(readOnly = true)
     List<Student> getForEnable() throws StudentException;
 
     @Transactional(readOnly = true)

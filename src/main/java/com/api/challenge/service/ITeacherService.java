@@ -33,13 +33,7 @@ public interface ITeacherService {
     List<Teacher> getAll() throws TeacherException;
 
     @Transactional(readOnly = true)
-    List<Teacher> getByValueEnable(String value) throws TeacherException;
-
-    @Transactional(readOnly = true)
-    List<Teacher> getByValueDisable(String value) throws TeacherException;
-
-    @Transactional(readOnly = true)
-    List<Teacher> getByName(String name) throws TeacherException;
+    List<Teacher> getByValue(String value) throws TeacherException;
 
     @Transactional(readOnly = true)
     List<Teacher> getForEnable() throws TeacherException;

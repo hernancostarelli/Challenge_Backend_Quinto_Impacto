@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface IStudentRepository extends JpaRepository<Student, String> {
 
-    @Query("SELECT s FROM Student s WHERE s.name LIKE :value OR s.surname LIKE :value AND s.deleted = false " +
+    @Query("SELECT s FROM Student s WHERE s.name LIKE :value OR s.surname LIKE :value " +
             "ORDER BY s.surname ASC")
     List<Student> getByValue(@Param("value")String value);
 
@@ -22,7 +22,4 @@ public interface IStudentRepository extends JpaRepository<Student, String> {
 
     @Query("SELECT s FROM Student s WHERE s.name LIKE :name AND s.deleted = false ORDER BY s.name ASC")
     List<Student> getByName(@Param("name")String name);
-
-    @Query("SELECT s FROM Student s INNER JOIN s.courseList courseList WHERE courseList.name = :name")
-    List<Student> getByCourse(@Param("name") String name);
 }

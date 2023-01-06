@@ -9,12 +9,7 @@ import java.util.List;
 
 public interface ICourseRepository extends JpaRepository<Course, String> {
 
-    @Query("SELECT c FROM Course c WHERE c.name LIKE :value OR " +
-            "c.turn LIKE :value OR " +
-            "c.schedule LIKE :value OR " +
-            "c.teacher.name LIKE :value AND " +
-            "c.deleted = false " +
-            "ORDER BY c.name ASC")
+    @Query("SELECT c FROM Course c WHERE c.name LIKE :value OR c.turn LIKE :value OR c.schedule LIKE :value ORDER BY c.name ASC")
     List<Course> getByValue(@Param("value") String value);
 
     @Query("SELECT c FROM Course c WHERE c.deleted = false ORDER BY c.name ASC")

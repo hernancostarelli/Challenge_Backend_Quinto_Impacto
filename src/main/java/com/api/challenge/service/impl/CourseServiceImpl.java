@@ -128,15 +128,6 @@ public class CourseServiceImpl implements ICourseService {
     }
 
     @Override
-    public List<Course> getByName(String name) throws CourseException {
-        if (name != null) {
-            return repository.getByName("%" + name + "%");
-        } else {
-            throw new CourseException(EExceptionMessage.THERE_IS_NO_COURSE_BY_THAT_NAME.toString());
-        }
-    }
-
-    @Override
     public List<Course> getForEnable() throws CourseException {
         List<Course> courseList = repository.getForEnable();
         if (courseList != null) {

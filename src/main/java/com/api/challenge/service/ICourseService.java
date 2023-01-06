@@ -37,9 +37,6 @@ public interface ICourseService {
     List<Course> getByValue(String value) throws CourseException;
 
     @Transactional(readOnly = true)
-    List<Course> getByName(String name) throws CourseException;
-
-    @Transactional(readOnly = true)
     List<Course> getForEnable() throws CourseException;
 
     @Transactional(readOnly = true)

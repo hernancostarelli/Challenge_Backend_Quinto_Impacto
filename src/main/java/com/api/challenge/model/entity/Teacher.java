@@ -49,7 +49,6 @@ public class Teacher {
 
     // RELATION TEACHER --> COURSE
     @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL)
-    @ToString.Exclude
     private List<Course> courseList = new ArrayList<>();
 
     @Temporal(TemporalType.TIMESTAMP)

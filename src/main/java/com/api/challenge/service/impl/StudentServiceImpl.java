@@ -125,15 +125,6 @@ public class StudentServiceImpl implements IStudentService {
     }
 
     @Override
-    public List<Student> getByName(String name) throws StudentException {
-        if (name != null) {
-            return repository.getByName("%" + name + "%");
-        } else {
-            throw new StudentException(EExceptionMessage.THERE_IS_NO_STUDENT_BY_THAT_NAME.toString());
-        }
-    }
-
-    @Override
     public List<Student> getForEnable() throws StudentException {
         List<Student> studentList = repository.getForEnable();
         if (studentList != null) {

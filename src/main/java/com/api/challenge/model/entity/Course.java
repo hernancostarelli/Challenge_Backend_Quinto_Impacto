@@ -52,13 +52,11 @@ public class Course {
                     CascadeType.PERSIST,
                     CascadeType.MERGE,
                     CascadeType.REFRESH})
-    @ToString.Exclude
     private List<Student> studentList = new ArrayList<>();
 
     // RELATION COURSE --> TEACHER
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_teacher")
-    @ToString.Exclude
     private Teacher teacher;
 
     @Temporal(TemporalType.TIMESTAMP)

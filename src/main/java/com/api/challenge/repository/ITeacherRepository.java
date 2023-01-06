@@ -11,11 +11,7 @@ public interface ITeacherRepository extends JpaRepository<Teacher, String> {
 
     @Query("SELECT t FROM Teacher t WHERE t.name LIKE :value OR t.surname LIKE :value " +
             "ORDER BY t.surname ASC")
-    List<Teacher> getByValueEnable(@Param("value")String value);
-
-    @Query("SELECT t FROM Teacher t WHERE t.name LIKE :value OR t.surname LIKE :value AND t.deleted = true " +
-            "ORDER BY t.surname ASC")
-    List<Teacher> getByValueDisable(@Param("value")String value);
+    List<Teacher> getByValue(@Param("value")String value);
 
     @Query("SELECT t FROM Teacher t WHERE t.deleted = false ORDER BY t.name ASC")
     List<Teacher> getForEnable();

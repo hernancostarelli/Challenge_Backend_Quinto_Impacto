@@ -26,6 +26,8 @@ import java.util.List;
 public class TeacherController {
 
     private static final String REDIRECT_TEACHER_SEARCH_TEACHER = "redirect:/teacher/search-teacher";
+    private static final String TEACHER_ADD_REMOVE_COURSE_HTML = "/teacher/add_remove_course.html";
+    private static final String TEACHER = "teacher";
     private final ITeacherService service;
     private final ICourseService courseService;
     private static final Logger logger = LoggerFactory.getLogger(TeacherController.class);
@@ -38,7 +40,7 @@ public class TeacherController {
     @GetMapping("/search-teacher")
     public String searchTeacher(ModelMap model, @RequestParam(required = false) String value) throws TeacherException {
         List<Teacher> teacherList;
-        teacherList = service.getByValueEnable(value);
+        teacherList = service.getByValue(value);
         model.put("teacherList", teacherList);
         return "/teacher/get_teacher.html";
     }
@@ -65,13 +67,13 @@ public class TeacherController {
 
     @GetMapping("/modify-teacher/{id}")
     public String modifyTeacher(ModelMap model, @PathVariable String id) throws TeacherException {
-        model.put("teacher", service.getById(id));
+        model.put(TEACHER, service.getById(id));
         return "/teacher/modify_teacher.html";
     }
 
     @PostMapping("/modify-teacher/{id}")
-    public String modificar(@PathVariable String id, @RequestParam String name,
-                            @RequestParam String surname, RedirectAttributes redirectAttributes) throws TeacherException {
+    public String modifyTeacher(@PathVariable String id, @RequestParam String name,
+                                @RequestParam String surname) throws TeacherException {
         service.modify(id, name, surname);
         return REDIRECT_TEACHER_SEARCH_TEACHER;
     }
@@ -96,26 +98,41 @@ public class TeacherController {
 
     @GetMapping("/detail-teacher/{id}")
     public String detailTeacher(ModelMap model, @PathVariable String id) throws TeacherException {
-        model.put("teacher", service.getById(id));
+        Teacher teacher = service.getById(id);
+        model.put(TEACHER, teacher);
+        List<Course> courseList = teacher.getCourseList();
+        model.put("courseList", courseList);
         return "/teacher/detail_teacher.html";
     }
 
-    @GetMapping("/add-remove-course/{id}")
-    public String addRemoveCourse(ModelMap model, @PathVariable String id) throws CourseException {
+    @GetMapping("/course/{id}")
+    public String addRemoveCourse(ModelMap model, @PathVariable String id) throws CourseException, TeacherException {
         List<Course> courseList = courseService.getForEnable();
         model.put("course", courseList);
-        return "/teacher/add_remove_course.html";
+        Teacher teacher = service.getById(id);
+        model.put(TEACHER, teacher);
+        return TEACHER_ADD_REMOVE_COURSE_HTML;
     }
 
-    @PostMapping("/add-course/{id-teacher}/course/{id-course}")
-    public String addCourse (ModelMap model, @PathVariable String idTeacher, @PathVariable String idCourse) throws TeacherException, CourseException {
-        service.addCourse(idTeacher, idCourse);
-        return "/teacher/add_remove_course.html";
+    @PostMapping("/add-course/{id}/course/{id2}")
+    public String addCourse(ModelMap model, @PathVariable String id, @PathVariable String id2) throws TeacherException, CourseException {
+        try {
+            System.err.println("ID TEACHER : " + id);
+            System.err.println("ID COURSE : " + id2);
+            service.addCourse(id, id2);
+            return REDIRECT_TEACHER_SEARCH_TEACHER;
+        } catch (Exception exception){
+            System.err.println("OCURRIÓ UN ERROR : "+ exception.getMessage());
+            model.put("error", exception.getMessage());
+            return "error.html";
+        }
     }
 
-    @PostMapping("/remove-course/{id-teacher}/course/{id-course}")
-    public String removeCourse (ModelMap model, @PathVariable String idTeacher, @PathVariable String idCourse) throws TeacherException, CourseException {
-        service.removeCourse(idTeacher, idCourse);
-        return "/teacher/add_remove_course.html";
+    @PostMapping("/remove-course/{id}/course/{id2}")
+    public String removeCourse(@PathVariable String id, @PathVariable String id2) throws TeacherException, CourseException {
+        System.err.println("ID TEACHER : " + id);
+        System.err.println("ID COURSE : " + id2);
+        service.removeCourse(id, id2);
+        return REDIRECT_TEACHER_SEARCH_TEACHER;
     }
 }

@@ -65,7 +65,6 @@ public class Student {
             name = "student_course",
             joinColumns = @JoinColumn(name = "id_student"),
             inverseJoinColumns = @JoinColumn(name = "id_course"))
-    @ToString.Exclude
     private List<Course> courseList = new ArrayList<>();
 
     @Temporal(TemporalType.TIMESTAMP)

@@ -61,15 +61,13 @@ public class MainController {
         try {
             adminService.register(name, surname, email, password, confirmPassword);
             model.put("success", EExceptionMessage.THE_USER_HAS_SUCCESSFULLY_REGISTERED.toString());
-            return "index.html";
-        } catch (AdminException exception) {
+            return "register.html";
+        } catch (Exception exception) {
             logger.info("OCURRIÓ UN ERROR : {}", exception.getMessage());
             model.put("error", exception.getMessage());
             redirectAttributes.addFlashAttribute("name", name);
             redirectAttributes.addFlashAttribute("surname", surname);
             redirectAttributes.addFlashAttribute("email", email);
-            redirectAttributes.addFlashAttribute("password", password);
-            redirectAttributes.addFlashAttribute("confirmPassword", confirmPassword);
             return "error.html";
         }
     }
