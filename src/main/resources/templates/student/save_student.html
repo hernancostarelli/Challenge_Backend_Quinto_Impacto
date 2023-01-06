@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+
+<head th:replace="/fragments/head :: head"></head>
+
+<body>
+
+<nav th:replace="/fragments/nav :: nav"></nav>
+
+<div class="container-save-student">
+
+    <div class="title">
+        <h1>REGISTRO DE ALUMNOS</h1>
+    </div>
+
+    <div class="register-student">
+        <form th:action="@{/student/save-student}" method="POST">
+
+            <div class="form-group">
+                <label>Nombre del Alumno</label>
+                <input type="text" class="form-control" name="name" th:value="${name}" placeholder="Nombre del Alumno" required>
+            </div>
+
+            <div class="form-group">
+                <label>Apellido del Alumno</label>
+                <input type="text" class="form-control" name="surname" th:value="${surname}" placeholder="Apellido del Alumno" required>
+            </div>
+
+            <div class="form-group">
+                <label>Fecha de Nacimiento</label>
+                <input type="date" min="1980-01-01" class="form-control" name="dateOfBirth" th:value="${dateOfBirth}" placeholder="Fecha de Nacimiento" required>
+            </div>
+
+            <div class="form-group">
+                <label>Historia del Alumno</label>
+                <!--<input type="text" class="form-control" name="story" th:value="${story}" placeholder="Historia del Alumno" required>-->
+                <textarea class="form-control"  name="story" placeholder="Ingrese una breve Historia del Alumno"  style="height: 115.99px" required></textarea>
+            </div>
+
+            <div class="button-student">
+                <button type="submit" class="btn btn-outline-success my-2 btn-sm" title="Registrar Profesor">Registrar Profesor</button>
+            </div>
+
+            <div class="button-back-to-home">
+                <a type="button" class="btn btn-outline-primary my-2 btn-sm" th:href="@{/student/dashboard}">Volver atrás</a>
+                <a type="button" class="btn btn-outline-warning my-2 btn-sm" th:href="@{/admin/dashboard}">Volver al Inicio</a>
+            </div>
+
+        </form>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+
+<head th:replace="/fragments/head :: head"></head>
+
+<body>
+
+<nav th:replace="/fragments/nav :: nav"></nav>
+
+<div class="container-modify-course">
+
+  <div class="title">
+    <h1>MODIFICAR CURSOS</h1>
+    <br>
+    <h4>INGRESE LOS SIGUIENTES DATOS PARA MODIFICAR UN CURSO</h4>
+    <br>
+  </div>
+
+  <div class="modify-course">
+    <form th:action="@{/course/modify-course/__${course.id}__}" method="POST">
+
+      <div class="form-group">
+        <input hidden='' type="text" class="form-control" name="id" th:value="${course.id}">
+      </div>
+
+      <div class="form-group">
+        <label>Nombre del Curso</label>
+        <input type="text" class="form-control" name="name" th:value="${name}" placeholder="Nombre del Curso" required>
+      </div>
+
+      <div class="form-group">
+        <label>Turno del Curso</label>
+        <input type="text" class="form-control" name="turn" th:value="${turn}" placeholder="Turno del Curso" required>
+      </div>
+
+      <div class="form-group">
+        <label>Horario del Curso</label>
+        <input type="text" class="form-control" name="schedule" th:value="${schedule}" placeholder="Horario del Curso" required>
+      </div>
+
+      <div class="button-course">
+        <button type="submit" class="btn btn-outline-success my-2 btn-sm" title="Modificar Curso">Modificar Curso</button>
+      </div>
+
+      <div class="button-back-to-home">
+        <a type="button" class="btn btn-outline-primary my-2 btn-sm" th:href="@{/course/search-course}">Volver Atrás</a>
+        <a type="button" class="btn btn-outline-warning my-2 btn-sm" th:href="@{/admin/dashboard}">Volver al Inicio</a>
+      </div>
+
+    </form>
+  </div>
+
+</div>
+
+</body>
+</html>
