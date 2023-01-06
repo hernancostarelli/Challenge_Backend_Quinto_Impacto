@@ -57,20 +57,20 @@
           <div>
             <form id="form1" th:action="@{/student/add-course/__${student.id}__/course/__${course.id}__}" method="POST">
               <div hidden="hidden" th:value="${student.id}"></div>
-              <button  hidden="hidden" type="submit" class="btn btn-success btn-sm" title="Agregar">Agregar</button>
+              <button type="submit" class="btn btn-success btn-sm" title="Agregar">Agregar</button>
             </form>
 
 
             <form id="form2" th:action="@{/student/remove-course/__${student.id}__/course/__${course.id}__}"
                   method="POST" class="mbr-form form-with-styler mx-auto">
               <div hidden="hidden" th:value="${student.id}"></div>
-              <button hidden="hidden" type="submit" class="btn btn-danger btn-sm" title="Remover">Remover</button>
+              <button type="submit" class="btn btn-danger btn-sm" title="Remover">Remover</button>
             </form>
 
-            <a href="javascript:;" onclick="document.getElementById('form1').submit()" class="btn btn-success btn-sm"
+            <!--<a href="javascript:;" onclick="document.getElementById('form1').submit()" class="btn btn-success btn-sm"
                title="Agregar">Agregar</a>
             <a href="javascript:;" onclick="document.getElementById('form2').submit()" class="btn btn-danger btn-sm"
-               title="Remover">Remover</a>
+               title="Remover">Remover</a>-->
 
           </div>
         </td>

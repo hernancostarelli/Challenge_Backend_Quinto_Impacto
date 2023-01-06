@@ -78,7 +78,7 @@
     padding-right: auto;
 }
 
-.container-detail-teacher, .container-detail-student {
+.container-detail-teacher, .container-detail-student, .container-detail-course {
 text-align: center;
     margin-top: 10%;
     margin-left: auto;

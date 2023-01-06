@@ -4,6 +4,8 @@ import com.api.challenge.exception.CourseException;
 import com.api.challenge.exception.StudentException;
 import com.api.challenge.exception.TeacherException;
 import com.api.challenge.model.entity.Course;
+import com.api.challenge.model.entity.Student;
+import com.api.challenge.model.entity.Teacher;
 import com.api.challenge.service.ICourseService;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
@@ -92,7 +94,12 @@ public class CourseController {
 
     @GetMapping("/detail-course/{id}")
     public String detailCourse(ModelMap model, @PathVariable String id) throws CourseException {
-        model.put("course", service.getById(id));
+        Course course = service.getById(id);
+        model.put("course", course);
+        List<Student> studentList = course.getStudentList();
+        model.put("studentList", studentList);
+        Teacher teacher = course.getTeacher();
+        model.put("teacher", teacher);
         return "/course/detail_course.html";
     }
 }

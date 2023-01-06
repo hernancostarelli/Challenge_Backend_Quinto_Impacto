@@ -1,6 +1,5 @@
 package com.api.challenge.controller;
 
-import com.api.challenge.exception.AdminException;
 import com.api.challenge.exception.EmailAlreadyExistException;
 import com.api.challenge.model.entity.Admin;
 import com.api.challenge.model.enums.EExceptionMessage;
