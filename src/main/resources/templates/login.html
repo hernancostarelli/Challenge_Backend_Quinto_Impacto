@@ -18,7 +18,7 @@
         </div>
     </div>
 
-    <div  th:if="${error}!=null" class="card text-white bg-danger mb-3">
+    <div th:if="${error}!=null" class="card text-white bg-danger mb-3">
         <div class="card-body">
             <p class="card-text " th:text="${error}" align="center"></p>
         </div>
@@ -36,16 +36,19 @@
 
             <div class="form-group">
                 <label>Ingrese su Email</label>
-                <input type="email" class="form-control" name="email" placeholder="Ingrese su email" th:value="${email}" required>
+                <input type="email" class="form-control" name="email" placeholder="Ingrese su email" th:value="${email}"
+                       required>
             </div>
 
             <div class="form-group">
                 <label>Ingrese su Contraseña</label>
-                <input type="password" class="form-control" name="password" placeholder="Ingrese su contraseña" th:value="${password}" required>
+                <input type="password" class="form-control" name="password" placeholder="Ingrese su contraseña"
+                       th:value="${password}" required>
             </div>
 
             <div class="button-login">
-                <button type="submit" class="btn btn-outline-success my-2 btn-sm" title="Inicia Sesión">Inicia Sesión</button>
+                <button type="submit" class="btn btn-outline-success my-2 btn-sm" title="Inicia Sesión">Inicia Sesión
+                </button>
             </div>
 
             <div class="button-back-to-home">
@@ -56,8 +59,14 @@
 
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+<footer th:replace="/fragments/footer :: footer"></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
 
 </body>
 

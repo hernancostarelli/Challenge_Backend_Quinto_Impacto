@@ -20,32 +20,50 @@
 
             <div class="form-group">
                 <label>Nombre del Curso</label>
-                <input type="text" class="form-control" name="name" th:value="${name}" placeholder="Nombre del Curso" required>
+                <input type="text" class="form-control" name="name" th:value="${name}" placeholder="Nombre del Curso"
+                       required>
             </div>
 
+            <!--<div class="form-group">
+            <label>Turno del Curso</label>
+            <input type="text" class="form-control" name="turn" th:value="${turn}" placeholder="Turno del Curso" required>
+            </div>-->
+
             <div class="form-group">
-                <label>Turno del Curso</label>
-                <input type="text" class="form-control" name="turn" th:value="${turn}" placeholder="Turno del Curso" required>
+                <label for="turn">Turno del Curso</label>
+                <select class="form-control" name="turn" id="turn" required>
+                    <option selected disabled>Seleccione el turno del Curso</option>
+                    <option>Mañana</option>
+                    <option>Tarde</option>
+                    <option>Noche</option>
+                </select>
             </div>
 
             <div class="form-group">
                 <label>Horario del Curso</label>
-                <input type="text" class="form-control" name="schedule" th:value="${schedule}" placeholder="Horario del Curso" required>
+                <input type="text" class="form-control" name="schedule" th:value="${schedule}"
+                       placeholder="Horario del Curso" required>
             </div>
 
             <div class="button-course">
-                <button type="submit" class="btn btn-outline-success my-2 btn-sm" title="Registrar Curso">Registrar Curso</button>
+                <button type="submit" class="btn btn-outline-success my-2 btn-sm" title="Registrar Curso">Registrar
+                    Curso
+                </button>
             </div>
 
             <div class="button-back-to-home">
-                <a type="button" class="btn btn-outline-primary my-2 btn-sm" th:href="@{/course/dashboard}">Volver atrás</a>
-                <a type="button" class="btn btn-outline-warning my-2 btn-sm" th:href="@{/admin/dashboard}">Volver al Inicio</a>
+                <a type="button" class="btn btn-outline-primary my-2 btn-sm" th:href="@{/course/dashboard}">Volver
+                    atrás</a>
+                <a type="button" class="btn btn-outline-warning my-2 btn-sm" th:href="@{/admin/dashboard}">Volver al
+                    Inicio</a>
             </div>
 
         </form>
     </div>
 
 </div>
+
+<footer th:replace="/fragments/footer :: footer"></footer>
 
 </body>
 </html>

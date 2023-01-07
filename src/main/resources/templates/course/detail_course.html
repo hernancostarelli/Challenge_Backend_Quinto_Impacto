@@ -13,121 +13,123 @@
 
 <div class="container-detail-course" th:if="${session.userSession != null}" sec.authorize="hasAnyRole('ADMIN')">
 
-  <div class="title">
-    <h1>DETALLE DEL CURSO</h1>
-  </div>
+    <div class="title">
+        <h1>DETALLE DEL CURSO</h1>
+    </div>
 
-  <div class="table-detail">
-    <table class="table table-dark">
+    <div class="table-detail">
+        <table class="table table-dark">
 
-      <thead>
-      <tr>
-        <th scope="col">ATRIBUTO</th>
-        <th scope="col">DETALLE</th>
-      </tr>
-      </thead>
+            <thead>
+            <tr>
+                <th scope="col">ATRIBUTO</th>
+                <th scope="col">DETALLE</th>
+            </tr>
+            </thead>
 
-      <tbody>
-      <tr>
-        <td th:text="'Id del Curso : '"></td>
-        <td th:text="${course.id}"></td>
-      </tr>
+            <tbody>
+            <tr>
+                <td th:text="'Id del Curso : '"></td>
+                <td th:text="${course.id}"></td>
+            </tr>
 
-      <tr>
-        <td th:text="'Nombre de Curso : '"></td>
-        <td th:text="${course.name}"></td>
-      </tr>
+            <tr>
+                <td th:text="'Nombre de Curso : '"></td>
+                <td th:text="${course.name}"></td>
+            </tr>
 
-      <tr>
-        <td th:text="'Turno de Curso : '"></td>
-        <td th:text="${course.turn}"></td>
-      </tr>
+            <tr>
+                <td th:text="'Turno de Curso : '"></td>
+                <td th:text="${course.turn}"></td>
+            </tr>
 
-      <tr>
-        <td th:text="'Horario de Curso : '"></td>
-        <td th:text="${course.schedule}"></td>
-      </tr>
+            <tr>
+                <td th:text="'Horario de Curso : '"></td>
+                <td th:text="${course.schedule}"></td>
+            </tr>
 
-      <tr>
-        <td th:text="'Fecha de creación del Curso : '"></td>
-        <td th:text="${#dates.format(course.creationDate, 'dd / MM / yyyy')}"></td>
-      </tr>
+            <tr>
+                <td th:text="'Fecha de creación del Curso : '"></td>
+                <td th:text="${#dates.format(course.creationDate, 'dd / MM / yyyy')}"></td>
+            </tr>
 
-      <tr>
-        <td th:text="'Fecha de la última modificación : '"></td>
-        <td th:text="${#dates.format(course.modificationDate, 'dd / MM / yyyy')}"></td>
-      </tr>
+            <tr>
+                <td th:text="'Fecha de la última modificación : '"></td>
+                <td th:text="${#dates.format(course.modificationDate, 'dd / MM / yyyy')}"></td>
+            </tr>
 
-      <tr>
-        <td th:text="'Course dado de baja : '"></td>
-        <td th:text="${course.deleted}"></td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
+            <tr>
+                <td th:text="'Course dado de baja : '"></td>
+                <td th:text="${course.deleted}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 
-  <div class="sub-title">
-    <h3>PROFESOR A CARGO</h3>
-  </div>
+    <div class="sub-title">
+        <h3>PROFESOR A CARGO</h3>
+    </div>
 
-  <div class="table-detail">
-    <table class="table table-dark">
+    <div class="table-detail">
+        <table class="table table-dark">
 
-      <thead>
-      <tr>
-        <th scope="col">PROFESOR</th>
-        <th scope="col">DETALLE</th>
-      </tr>
-      </thead>
+            <thead>
+            <tr>
+                <th scope="col">PROFESOR</th>
+                <th scope="col">DETALLE</th>
+            </tr>
+            </thead>
 
-      <thead>
-      <tr>
-        <th scope="col">Nombre del Profesor</th>
-      </tr>
-      </thead>
+            <thead>
+            <tr>
+                <th scope="col">Nombre del Profesor</th>
+            </tr>
+            </thead>
 
-      <tbody th:each="teacher : ${teacher}">
-      <tr>
-        <td th:text="${teacher.surname} + ' ' + ${teacher.name}"></td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
+            <tbody th:each="teacher : ${teacher}">
+            <tr>
+                <td th:text="${teacher.surname} + ' ' + ${teacher.name}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 
-  <div class="sub-title">
-    <h3>ALUMNOS INSCRIPTOS AL CURSO</h3>
-  </div>
+    <div class="sub-title">
+        <h3>ALUMNOS INSCRIPTOS AL CURSO</h3>
+    </div>
 
-  <div class="table-detail">
-    <table class="table table-dark">
+    <div class="table-detail">
+        <table class="table table-dark">
 
-      <thead>
-      <tr>
-        <th scope="col">ALUMNOS</th>
-        <th scope="col">DETALLE</th>
-      </tr>
-      </thead>
+            <thead>
+            <tr>
+                <th scope="col">ALUMNOS</th>
+                <th scope="col">DETALLE</th>
+            </tr>
+            </thead>
 
-      <thead>
-      <tr>
-        <th scope="col">Nombre del Alumno</th>
-      </tr>
-      </thead>
+            <thead>
+            <tr>
+                <th scope="col">Nombre del Alumno</th>
+            </tr>
+            </thead>
 
-      <tbody th:each="student : ${studentList}">
-      <tr>
-        <td th:text="${student.surname} + ' ' + ${student.name}"></td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
+            <tbody th:each="student : ${studentList}">
+            <tr>
+                <td th:text="${student.surname} + ' ' + ${student.name}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 
-  <div class="button-back-to-home">
-    <a type="button" class="btn btn-outline-primary my-2 btn-sm" th:href="@{/course/search-course}">Volver Atrás</a>
-    <a type="button" class="btn btn-outline-warning my-2 btn-sm" th:href="@{/course/dashboard}">Volver al Inicio</a>
-  </div>
+    <div class="button-back-to-home">
+        <a type="button" class="btn btn-outline-primary my-2 btn-sm" th:href="@{/course/search-course}">Volver Atrás</a>
+        <a type="button" class="btn btn-outline-warning my-2 btn-sm" th:href="@{/course/dashboard}">Volver al Inicio</a>
+    </div>
 
 </div>
+
+<footer th:replace="/fragments/footer :: footer"></footer>
 
 </body>
 </html>

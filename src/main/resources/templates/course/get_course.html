@@ -12,82 +12,89 @@
 <nav th:replace="/fragments/nav :: nav"></nav>
 
 <div class="alert">
-  <div th:if="${success}!=null" class="alert alert-success">
-    <div class="card-body">
-      <p class="card-text" th:text="${success}"></p>
+    <div th:if="${success}!=null" class="alert alert-success">
+        <div class="card-body">
+            <p class="card-text" th:text="${success}"></p>
+        </div>
     </div>
-  </div>
 
-  <div  th:if="${error}!=null" class="card text-white bg-danger mb-3">
-    <div class="card-body">
-      <p class="card-text " th:text="${error}" align="center"></p>
+    <div th:if="${error}!=null" class="card text-white bg-danger mb-3">
+        <div class="card-body">
+            <p class="card-text " th:text="${error}" align="center"></p>
+        </div>
     </div>
-  </div>
 </div>
 
-<div class="container-search-course"  th:if="${session.userSession != null}" sec.authorize="hasAnyRole('ADMIN')">
+<div class="container-search-course" th:if="${session.userSession != null}" sec.authorize="hasAnyRole('ADMIN')">
 
-  <div class="title">
-    <h1>BUSCAR CURSOS</h1>
-  </div>
+    <div class="title">
+        <h1>BUSCAR CURSOS</h1>
+    </div>
 
-  <div class="container-search-course">
-    <form th:action="@{/course/search-course}" method="GET">
-      <div>
-        <label>Ingrese el nombre del Curso para realizar la búsqueda</label>
-        <input type="text" class="form-control" name="value" placeholder="Ingrese el nombre del Curso"> <br>
-        <button type="submit" class="btn btn-outline-success my-2 btn-sm" title="Buscar Curso">Buscar Curso</button>
-        <br> <br>
-      </div>
-    </form>
-  </div>
+    <div class="container-search-course">
+        <form th:action="@{/course/search-course}" method="GET">
+            <div>
+                <label>Ingrese el nombre del Curso para realizar la búsqueda</label>
+                <input type="text" class="form-control" name="value" placeholder="Ingrese el nombre del Curso"> <br>
+                <button type="submit" class="btn btn-outline-success my-2 btn-sm" title="Buscar Curso">Buscar Curso
+                </button>
+                <br> <br>
+            </div>
+        </form>
+    </div>
 
-  <div class="title-table">
-    <h1>LISTA DE CURSOS</h1>
-  </div>
+    <div class="title-table">
+        <h1>LISTA DE CURSOS</h1>
+    </div>
 
-  <div class="table">
-    <table class="table table-dark">
+    <div class="table">
+        <table class="table table-dark">
 
-      <thead>
-      <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Nombre</th>
-        <th scope="col">Turno</th>
-        <th scope="col">Horario</th>
-        <th scope="col">Estado</th>
-        <th scope="col">Acciones</th>
-      </tr>
-      </thead>
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Turno</th>
+                <th scope="col">Horario</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Acciones</th>
+            </tr>
+            </thead>
 
-      <tbody th:each="course : ${courseList}">
-          <tr>
-            <td th:text="${course.id}"></td>
-            <td th:text="${course.name}"></td>
-            <td th:text="${course.turn}"></td>
-            <td th:text="${course.schedule}"></td>
-            <td>
-              <i th:if="${course.deleted}" class="fa fa-circle" style="color: red;"></i>
-              <i th:unless="${course.deleted}"  class="fa fa-circle" style="color: green;"></i></td>
+            <tbody th:each="course : ${courseList}">
+            <tr>
+                <td th:text="${course.id}"></td>
+                <td th:text="${course.name}"></td>
+                <td th:text="${course.turn}"></td>
+                <td th:text="${course.schedule}"></td>
+                <td>
+                    <i th:if="${course.deleted}" class="fa fa-circle" style="color: red;"></i>
+                    <i th:unless="${course.deleted}" class="fa fa-circle" style="color: green;"></i></td>
 
-            <td>
-              <a th:href="@{/course/detail-course/__${course.id}__}" class="btn btn-light btn-sm" title="Detalles">Detalles</a>
-              <a th:href="@{/course/modify-course/__${course.id}__}" class="btn btn-warning btn-sm" title="Modificar">Modificar</a>
-              <a th:if="${course.deleted}" th:href="@{/course/enable-course/__${course.id}__}" class="btn btn-success btn-sm" title="Alta">Alta</a>
-              <a th:unless="${course.deleted}" th:href="@{/course/disable-course/__${course.id}__}" class="btn btn-danger btn-sm" title="Baja">Baja</a>
-              <!--<a th:href="@{/course/delete-course/__${course.id}__}" class="btn btn-danger btn-sm" title="Eliminar">Eliminar</a>-->
-            </td>
-          </tr>
-      </tbody>
-    </table>
-  </div>
+                <td>
+                    <a th:href="@{/course/detail-course/__${course.id}__}" class="btn btn-light btn-sm"
+                       title="Detalles">Detalles</a>
+                    <a th:href="@{/course/modify-course/__${course.id}__}" class="btn btn-warning btn-sm"
+                       title="Modificar">Modificar</a>
+                    <a th:if="${course.deleted}" th:href="@{/course/enable-course/__${course.id}__}"
+                       class="btn btn-success btn-sm" title="Alta">Alta</a>
+                    <a th:unless="${course.deleted}" th:href="@{/course/disable-course/__${course.id}__}"
+                       class="btn btn-danger btn-sm" title="Baja">Baja</a>
+                    <!--<a th:href="@{/course/delete-course/__${course.id}__}" class="btn btn-danger btn-sm" title="Eliminar">Eliminar</a>-->
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 
-  <div class="button-back-to-home">
-    <a type="button" class="btn btn-outline-primary my-2 btn-sm" th:href="@{/course/dashboard}">Volver Atrás</a>
-    <a type="button" class="btn btn-outline-warning my-2 btn-sm" th:href="@{/admin/dashboard}">Volver al Inicio</a>
-  </div>
+    <div class="button-back-to-home">
+        <a type="button" class="btn btn-outline-primary my-2 btn-sm" th:href="@{/course/dashboard}">Volver Atrás</a>
+        <a type="button" class="btn btn-outline-warning my-2 btn-sm" th:href="@{/admin/dashboard}">Volver al Inicio</a>
+    </div>
 
 </div>
+
+<footer th:replace="/fragments/footer :: footer"></footer>
 
 </body>
 </html>

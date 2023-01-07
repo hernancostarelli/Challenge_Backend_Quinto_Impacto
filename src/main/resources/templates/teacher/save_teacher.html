@@ -22,27 +22,35 @@
 
             <div class="form-group">
                 <label>Nombre del Profesor</label>
-                <input type="text" class="form-control" name="name" th:value="${name}" placeholder="Nombre del Profesor" required>
+                <input type="text" class="form-control" name="name" th:value="${name}" placeholder="Nombre del Profesor"
+                       required>
             </div>
 
             <div class="form-group">
                 <label>Apellido del Profesor</label>
-                <input type="text" class="form-control" name="surname" th:value="${surname}" placeholder="Apellido del Profesor" required>
+                <input type="text" class="form-control" name="surname" th:value="${surname}"
+                       placeholder="Apellido del Profesor" required>
             </div>
 
             <div class="button-teacher">
-                <button type="submit" class="btn btn-outline-success my-2 btn-sm" title="Registrar Profesor">Registrar Profesor</button>
+                <button type="submit" class="btn btn-outline-success my-2 btn-sm" title="Registrar Profesor">Registrar
+                    Profesor
+                </button>
             </div>
 
             <div class="button-back-to-home">
-                <a type="button" class="btn btn-outline-primary my-2 btn-sm" th:href="@{/teacher/dashboard}">Volver atrás</a>
-                <a type="button" class="btn btn-outline-warning my-2 btn-sm" th:href="@{/admin/dashboard}">Volver al Inicio</a>
+                <a type="button" class="btn btn-outline-primary my-2 btn-sm" th:href="@{/teacher/dashboard}">Volver
+                    atrás</a>
+                <a type="button" class="btn btn-outline-warning my-2 btn-sm" th:href="@{/admin/dashboard}">Volver al
+                    Inicio</a>
             </div>
 
         </form>
     </div>
 
 </div>
+
+<footer th:replace="/fragments/footer :: footer"></footer>
 
 </body>
 </html>

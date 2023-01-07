@@ -13,55 +13,65 @@
 
 <div class="container-modify-student" th:if="${session.userSession != null}" sec.authorize="hasAnyRole('ADMIN')">
 
-  <div class="title">
-    <h1>MODIFICAR ALUMNOS</h1>
-    <br>
-    <h4>INGRESE LOS SIGUIENTES DATOS PARA MODIFICAR UN ALUMNO</h4>
-    <br>
-  </div>
+    <div class="title">
+        <h1>MODIFICAR ALUMNOS</h1>
+        <br>
+        <h4>INGRESE LOS SIGUIENTES DATOS PARA MODIFICAR UN ALUMNO</h4>
+        <br>
+    </div>
 
-  <div class="modify-student">
-    <form th:action="@{/student/modify-student/__${student.id}__}" method="POST">
+    <div class="modify-student">
+        <form th:action="@{/student/modify-student/__${student.id}__}" method="POST">
 
-      <div class="form-group">
-        <input hidden='' type="text" class="form-control" name="id" th:value="${student.id}">
-      </div>
+            <div class="form-group">
+                <input hidden='' type="text" class="form-control" name="id" th:value="${student.id}">
+            </div>
 
-      <div class="form-group">
-        <label>Nombre del Alumno</label>
-        <input type="text" class="form-control" name="name" th:value="${student.name}" placeholder="Nombre del Alumno" required>
-      </div>
+            <div class="form-group">
+                <label>Nombre del Alumno</label>
+                <input type="text" class="form-control" name="name" th:value="${student.name}"
+                       placeholder="Nombre del Alumno" required>
+            </div>
 
-      <div class="form-group">
-        <label>Apellido del Alumno</label>
-        <input type="text" class="form-control" name="surname" th:value="${student.surname}" placeholder="Apellido del Alumno" required>
-      </div>
+            <div class="form-group">
+                <label>Apellido del Alumno</label>
+                <input type="text" class="form-control" name="surname" th:value="${student.surname}"
+                       placeholder="Apellido del Alumno" required>
+            </div>
 
-      <div class="form-group">
-        <label>Fecha de Nacimiento</label>
-        <input type="text" class="form-control" name="dateOfBirth" th:value="${student.dateOfBirth}" placeholder="00 / 00 / 0000" required>
-        <!--<input type="date" min="1980-01-01" class="form-control" name="dateOfBirth" th:value="${student.dateOfBirth}" placeholder="Fecha de Nacimiento" required>-->
-      </div>
+            <div class="form-group">
+                <label>Fecha de Nacimiento</label>
+                <input type="text" class="form-control" name="dateOfBirth" th:value="${student.dateOfBirth}"
+                       placeholder="00 / 00 / 0000" required>
+                <!--<input type="date" min="1980-01-01" class="form-control" name="dateOfBirth" th:value="${student.dateOfBirth}" placeholder="Fecha de Nacimiento" required>-->
+            </div>
 
-      <div class="form-group">
-        <label>Historia del Alumno</label>
-        <!--<input type="text" class="form-control" name="story" th:value="${story}" placeholder="Historia del Alumno" required>-->
-        <textarea class="form-control"  name="story" placeholder="Ingrese una breve Historia del Alumno"  style="height: 115.99px" th:inline="text">[[${student.story}]]</textarea>
-      </div>
+            <div class="form-group">
+                <label>Historia del Alumno</label>
+                <!--<input type="text" class="form-control" name="story" th:value="${story}" placeholder="Historia del Alumno" required>-->
+                <textarea class="form-control" name="story" placeholder="Ingrese una breve Historia del Alumno"
+                          style="height: 115.99px" th:inline="text">[[${student.story}]]</textarea>
+            </div>
 
-      <div class="button-student">
-        <button type="submit" class="btn btn-outline-success my-2 btn-sm" title="Modificar Alumno">Modificar Alumno</button>
-      </div>
+            <div class="button-student">
+                <button type="submit" class="btn btn-outline-success my-2 btn-sm" title="Modificar Alumno">Modificar
+                    Alumno
+                </button>
+            </div>
 
-      <div class="button-back-to-home">
-        <a type="button" class="btn btn-outline-primary my-2 btn-sm" th:href="@{/student/search-student}">Volver Atrás</a>
-        <a type="button" class="btn btn-outline-warning my-2 btn-sm" th:href="@{/admin/dashboard}">Volver al Inicio</a>
-      </div>
+            <div class="button-back-to-home">
+                <a type="button" class="btn btn-outline-primary my-2 btn-sm" th:href="@{/student/search-student}">Volver
+                    Atrás</a>
+                <a type="button" class="btn btn-outline-warning my-2 btn-sm" th:href="@{/admin/dashboard}">Volver al
+                    Inicio</a>
+            </div>
 
-    </form>
-  </div>
+        </form>
+    </div>
 
 </div>
+
+<footer th:replace="/fragments/footer :: footer"></footer>
 
 </body>
 </html>

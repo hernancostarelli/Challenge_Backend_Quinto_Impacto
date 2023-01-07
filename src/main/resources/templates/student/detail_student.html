@@ -13,103 +13,107 @@
 
 <div class="container-detail-student" th:if="${session.userSession != null}" sec.authorize="hasAnyRole('ADMIN')">
 
-  <div class="title">
-    <h1>DETALLE DEL ALUMNO</h1>
-  </div>
+    <div class="title">
+        <h1>DETALLE DEL ALUMNO</h1>
+    </div>
 
-  <div class="table-detail">
-    <table class="table table-dark">
+    <div class="table-detail">
+        <table class="table table-dark">
 
-      <thead>
-      <tr>
-        <th scope="col">ATRIBUTO</th>
-        <th scope="col">DETALLE</th>
-      </tr>
-      </thead>
+            <thead>
+            <tr>
+                <th scope="col">ATRIBUTO</th>
+                <th scope="col">DETALLE</th>
+            </tr>
+            </thead>
 
-      <tbody>
-      <tr>
-        <td th:text="'Id del Alumno : '"></td>
-        <td th:text="${student.id}"></td>
-      </tr>
+            <tbody>
+            <tr>
+                <td th:text="'Id del Alumno : '"></td>
+                <td th:text="${student.id}"></td>
+            </tr>
 
-      <tr>
-        <td th:text="'Nombre completo del Alumno : '"></td>
-        <td th:text="${student.surname} + ' ' + ${student.name}"></td>
-      </tr>
+            <tr>
+                <td th:text="'Nombre completo del Alumno : '"></td>
+                <td th:text="${student.surname} + ' ' + ${student.name}"></td>
+            </tr>
 
-      <tr>
-        <td th:text="'Fecha de Nacimiento del Alumno : '"></td>
-        <td th:text="${student.dateOfBirth}"></td>
-        <!--<td th:text="${#dates.format(student.dateOfBirth, 'dd / MM / yyyy')}"></td>-->
-      </tr>
+            <tr>
+                <td th:text="'Fecha de Nacimiento del Alumno : '"></td>
+                <td th:text="${student.dateOfBirth}"></td>
+                <!--<td th:text="${#dates.format(student.dateOfBirth, 'dd / MM / yyyy')}"></td>-->
+            </tr>
 
-      <tr>
-        <td th:text="'Historia del Alumno : '"></td>
-        <td th:text="${student.story}"></td>
-      </tr>
+            <tr>
+                <td th:text="'Historia del Alumno : '"></td>
+                <td th:text="${student.story}"></td>
+            </tr>
 
-      <tr>
-        <td th:text="'Rol del Alumno : '"></td>
-        <td th:text="${student.role}"></td>
-      </tr>
+            <tr>
+                <td th:text="'Rol del Alumno : '"></td>
+                <td th:text="${student.role}"></td>
+            </tr>
 
-      <tr>
-        <td th:text="'Fecha de creación del Profesor : '"></td>
-        <td th:text="${#dates.format(student.creationDate, 'dd / MM / yyyy')}"></td>
-      </tr>
+            <tr>
+                <td th:text="'Fecha de creación del Profesor : '"></td>
+                <td th:text="${#dates.format(student.creationDate, 'dd / MM / yyyy')}"></td>
+            </tr>
 
-      <tr>
-        <td th:text="'Fecha de la última modificación : '"></td>
-        <td th:text="${#dates.format(student.modificationDate, 'dd / MM / yyyy')}"></td>
-      </tr>
+            <tr>
+                <td th:text="'Fecha de la última modificación : '"></td>
+                <td th:text="${#dates.format(student.modificationDate, 'dd / MM / yyyy')}"></td>
+            </tr>
 
-      <tr>
-        <td th:text="'Alumno dado de baja : '"></td>
-        <td th:text="${student.deleted}"></td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
+            <tr>
+                <td th:text="'Alumno dado de baja : '"></td>
+                <td th:text="${student.deleted}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 
-  <div class="sub-title">
-    <h3>CURSOS A LOS QUE ASISTE EL ALUMNO</h3>
-  </div>
+    <div class="sub-title">
+        <h3>CURSOS A LOS QUE ASISTE EL ALUMNO</h3>
+    </div>
 
-  <div class="table-detail">
-    <table class="table table-dark">
+    <div class="table-detail">
+        <table class="table table-dark">
 
-      <thead>
-      <tr>
-        <th scope="col">CURSOS</th>
-        <!--<th scope="col">DETALLE</th>-->
-      </tr>
-      </thead>
+            <thead>
+            <tr>
+                <th scope="col">CURSOS</th>
+                <!--<th scope="col">DETALLE</th>-->
+            </tr>
+            </thead>
 
-      <thead>
-      <tr>
-        <th scope="col">Nombre</th>
-        <th scope="col">Turno</th>
-        <th scope="col">Horario</th>
-      </tr>
-      </thead>
+            <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Turno</th>
+                <th scope="col">Horario</th>
+            </tr>
+            </thead>
 
-      <tbody th:each="course : ${courseList}">
-      <tr>
-        <td th:text="${course.name}"></td>
-        <td th:text="${course.turn}"></td>
-        <td th:text="${course.schedule}"></td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
+            <tbody th:each="course : ${courseList}">
+            <tr>
+                <td th:text="${course.name}"></td>
+                <td th:text="${course.turn}"></td>
+                <td th:text="${course.schedule}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 
-  <div class="button-back-to-home">
-    <a type="button" class="btn btn-outline-primary my-2 btn-sm" th:href="@{/student/search-student}">Volver Atrás</a>
-    <a type="button" class="btn btn-outline-warning my-2 btn-sm" th:href="@{/student/dashboard}">Volver al Inicio</a>
-  </div>
+    <div class="button-back-to-home">
+        <a type="button" class="btn btn-outline-primary my-2 btn-sm" th:href="@{/student/search-student}">Volver
+            Atrás</a>
+        <a type="button" class="btn btn-outline-warning my-2 btn-sm" th:href="@{/student/dashboard}">Volver al
+            Inicio</a>
+    </div>
 
 </div>
+
+<footer th:replace="/fragments/footer :: footer"></footer>
 
 </body>
 </html>

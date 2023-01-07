@@ -1,117 +1,117 @@
 .container-index {
-    text-align: center;
-    margin-top: 20%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: auto;
-    padding-right: auto;
+text-align: center;
+margin-top: 20%;
+margin-left: auto;
+margin-right: auto;
+padding-left: auto;
+padding-right: auto;
 }
 
 .container-index-admin {
-    text-align: center;
-    margin-top: 20%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: auto;
-    padding-right: auto;
+text-align: center;
+margin-top: 20%;
+margin-left: auto;
+margin-right: auto;
+padding-left: auto;
+padding-right: auto;
 }
 
 .container-index-teacher, .container-index-course, .container-index-student{
-    text-align: center;
-    margin-top: 20%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: auto;
-    padding-right: auto;
+text-align: center;
+margin-top: 20%;
+margin-left: auto;
+margin-right: auto;
+padding-left: auto;
+padding-right: auto;
 }
 .container-save-teacher, .container-modify-teacher {
-    text-align: center;
-    margin-top: 15%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: auto;
-    padding-right: auto;
+text-align: center;
+margin-top: 15%;
+margin-left: auto;
+margin-right: auto;
+padding-left: auto;
+padding-right: auto;
 }
 
 .container-save-course, .container-modify-course {
-    text-align: center;
-    margin-top: 15%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: auto;
-    padding-right: auto;
+text-align: center;
+margin-top: 15%;
+margin-left: auto;
+margin-right: auto;
+padding-left: auto;
+padding-right: auto;
 }
 
 .container-save-student, .container-modify-student {
-    text-align: center;
-    margin-top: 10%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: auto;
-    padding-right: auto;
+text-align: center;
+margin-top: 10%;
+margin-left: auto;
+margin-right: auto;
+padding-left: auto;
+padding-right: auto;
 }
 
 .register-teacher, .register-course, .register-student {
-    text-align: center;
-    margin-top: 3%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: auto;
-    padding-right: auto;
+text-align: center;
+margin-top: 3%;
+margin-left: auto;
+margin-right: auto;
+padding-left: auto;
+padding-right: auto;
 }
 
 .container-login {
-    text-align: center;
-    margin-top: 15%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: auto;
-    padding-right: auto;
+text-align: center;
+margin-top: 15%;
+margin-left: auto;
+margin-right: auto;
+padding-left: auto;
+padding-right: auto;
 }
 
 .container-register {
-    text-align: center;
-    margin-top: 10%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: auto;
-    padding-right: auto;
+text-align: center;
+margin-top: 10%;
+margin-left: auto;
+margin-right: auto;
+padding-left: auto;
+padding-right: auto;
 }
 
 .container-detail-teacher, .container-detail-student, .container-detail-course {
 text-align: center;
-    margin-top: 10%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: auto;
-    padding-right: auto;
+margin-top: 10%;
+margin-left: auto;
+margin-right: auto;
+padding-left: auto;
+padding-right: auto;
 }
 
 .container-search-teacher, .container-search-student, .container-search-course{
 text-align: center;
-    margin-top: 3%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: auto;
-    padding-right: auto;
+margin-top: 3%;
+margin-left: auto;
+margin-right: auto;
+padding-left: auto;
+padding-right: auto;
 }
 
 .container-teacher-course, .container-student-course {
 text-align: center;
-    margin-top: 15%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: auto;
-    padding-right: auto;
+margin-top: 15%;
+margin-left: auto;
+margin-right: auto;
+padding-left: auto;
+padding-right: auto;
 }
 
 .modify-teacher{
-    text-align: center;
-    margin-top: 3%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: auto;
-    padding-right: auto;
+text-align: center;
+margin-top: 3%;
+margin-left: auto;
+margin-right: auto;
+padding-left: auto;
+padding-right: auto;
 }
 
 .session{
@@ -169,53 +169,53 @@ margin-top:3%;
 }
 
 body {
-	color: white;
-	/*height: 400px;*/
-	background-color: black;
-	/*background-color: darkgray;*/
-	/*background-image: url("../imagenes/index.jpg");*/
-	background-size: cover;
-	background-repeat: no-repeat;
-	/*overflow: hidden;*/
+color: white;
+/*height: 400px;*/
+background-color: black;
+/*background-color: darkgray;*/
+/*background-image: url("../imagenes/index.jpg");*/
+background-size: cover;
+background-repeat: no-repeat;
+/*overflow: hidden;*/
 }
 
 
 h1,h2,h3,h4,h5 {
-	text-align: center;
+text-align: center;
 }
 
 .title, .registro, .busqueda, .tabla, .button, .modificar {
-	text-align: center;
+text-align: center;
 }
 
 table {
-	width: 98%;
-	margin-left: 3%;
-	margin-right: 3%;
-	font-size: small;
-	border-top: 2px solid darkgrey;
-	border-bottom: 2px solid darkgrey;
-	border-left: 2px solid darkgrey;
-	border-right: 2px solid darkgrey;
+width: 98%;
+margin-left: 3%;
+margin-right: 3%;
+font-size: small;
+border-top: 2px solid darkgrey;
+border-bottom: 2px solid darkgrey;
+border-left: 2px solid darkgrey;
+border-right: 2px solid darkgrey;
 }
 
 .table {
 margin-top: 2%;
-  width: 75%;
-  place-content: center;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: small;
+width: 75%;
+place-content: center;
+margin-left: auto;
+margin-right: auto;
+font-size: small;
 }
 
 .table-detail {
 margin-top: 2%;
-  width: 50%;
-  place-content: center;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: small;
-  text-align: left;
+width: 50%;
+place-content: center;
+margin-left: auto;
+margin-right: auto;
+font-size: small;
+text-align: left;
 }
 
 .alert, card-body{
@@ -229,21 +229,59 @@ margin-right: auto;
 
 /* PARA LOS INPUT */
 .form-control {
-	border-radius: 5px;
-	background-color: transparent;
-	color: gray;
-	/*border: 0;*/
-	border-color: white;
+border-radius: 5px;
+background-color: transparent;
+color: gray;
+/*border: 0;*/
+border-color: white;
+text-align-last: center; /*--> Centrar select*/
 }
 
 .form-control::-webkit-input-placeholder {
-  text-align: center;
-  line-height: 100px;
+text-align: center;
+line-height: 100px;
 }
 
 form {
-	width: 100%;
-	text-align: center;
-	padding-left: 35%;
-	padding-right: 35%;
+width: 100%;
+text-align: center;
+padding-left: 35%;
+padding-right: 35%;
 }
+
+footer {
+background-color: #191919;
+text-align: center;
+vertical-align: middle;
+position: fixed;
+bottom: 15px;
+width: 95%;
+margin-right: 3%;
+margin-left: 3%;
+
+border-top: 1px solid white;
+border-bottom: 1px solid white;
+border-left: 1px solid white;
+border-right: 1px solid white;
+
+font-size: 10px;
+}
+
+body {
+margin: 0;
+position: relative;
+padding-bottom: 3em;
+}
+
+body::-webkit-scrollbar {
+width: 10px;
+}
+body::-webkit-scrollbar-track {
+background-color: transparent;
+border-radius: 10px;
+}
+body::-webkit-scrollbar-thumb {
+background-color: rgba(0, 0, 0, 0.4);
+border-radius: 10px;
+}
+
