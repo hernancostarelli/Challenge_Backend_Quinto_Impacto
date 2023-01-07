@@ -31,7 +31,7 @@
     <h1>BUSCAR ALUMNOS</h1>
   </div>
 
-  <div class="container-search-student">
+  <div class="container-search-student" th:if="${session.userSession != null}" sec.authorize="hasAnyRole('ADMIN')">
     <form th:action="@{/student/search-student}" method="GET">
       <div>
         <label>Ingrese el nombre o apellido del Alumno para realizar la búsqueda</label>

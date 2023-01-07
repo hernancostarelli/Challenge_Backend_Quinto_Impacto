@@ -25,7 +25,7 @@
   </div>
 </div>
 
-<div class="container-teacher-course">
+<div class="container-teacher-course" th:if="${session.userSession != null}" sec.authorize="hasAnyRole('ADMIN')">
 
   <div class="title">
     <h1>AGREGAR O REMOVER CURSOS</h1>

@@ -25,7 +25,7 @@
   </div>
 </div>
 
-<div class="container-search-course">
+<div class="container-search-course"  th:if="${session.userSession != null}" sec.authorize="hasAnyRole('ADMIN')">
 
   <div class="title">
     <h1>BUSCAR CURSOS</h1>

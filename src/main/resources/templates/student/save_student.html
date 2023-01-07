@@ -11,7 +11,7 @@
 
 <nav th:replace="/fragments/nav :: nav"></nav>
 
-<div class="container-save-student">
+<div class="container-save-student" th:if="${session.userSession != null}" sec.authorize="hasAnyRole('ADMIN')">
 
     <div class="title">
         <h1>REGISTRO DE ALUMNOS</h1>

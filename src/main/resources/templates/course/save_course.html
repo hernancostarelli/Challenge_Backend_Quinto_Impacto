@@ -9,7 +9,7 @@
 <nav th:replace="/fragments/nav :: nav"></nav>
 
 
-<div class="container-save-course">
+<div class="container-save-course" th:if="${session.userSession != null}" sec.authorize="hasAnyRole('ADMIN')">
 
     <div class="title">
         <h1>REGISTRO DE CURSOS</h1>

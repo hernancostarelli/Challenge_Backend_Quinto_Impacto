@@ -2,7 +2,6 @@ package com.api.challenge.controller;
 
 import com.api.challenge.exception.CourseException;
 import com.api.challenge.exception.StudentException;
-import com.api.challenge.exception.TeacherException;
 import com.api.challenge.model.entity.Course;
 import com.api.challenge.model.entity.Student;
 import com.api.challenge.model.entity.Teacher;
