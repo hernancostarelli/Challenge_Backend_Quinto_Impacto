@@ -177,6 +177,9 @@ background-color: black;
 background-size: cover;
 background-repeat: no-repeat;
 /*overflow: hidden;*/
+margin: 0;
+position: relative;
+padding-bottom: 3em;
 }
 
 
@@ -265,12 +268,6 @@ border-left: 1px solid white;
 border-right: 1px solid white;
 
 font-size: 10px;
-}
-
-body {
-margin: 0;
-position: relative;
-padding-bottom: 3em;
 }
 
 body::-webkit-scrollbar {
