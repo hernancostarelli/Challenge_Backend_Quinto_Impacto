@@ -43,18 +43,25 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         .antMatchers("/css/*", "/js/*", "/img/*", "/**").permitAll()
                         .anyRequest()
                         .authenticated()
-                .and().formLogin()
+                .and()
+                        .formLogin()
                         .loginPage("/login")
                         .loginProcessingUrl("/logincheck")
                         .usernameParameter("email")
                         .passwordParameter("password")
                         .defaultSuccessUrl("/index-teacher")
                         .permitAll()
-                .and().logout()
+                .and()
+                        .logout()
                         .logoutUrl("/logout")
-                        .logoutSuccessUrl("/login?logout")
+                        .logoutSuccessUrl("/login")
                         .invalidateHttpSession(true)
-                        /*.permitAll()*/
-                .and().csrf().disable();
+                .and()
+                        .csrf().disable();
+
+        httpSecurity
+                .sessionManagement()
+                        .invalidSessionUrl("/login")
+                        .maximumSessions(1);
     }
 }
